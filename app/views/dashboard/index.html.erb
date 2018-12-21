@@ -1,0 +1,351 @@
+<nav class="navbar navbar-expand-md ol-navbar">
+    <a class="navbar-brand" href="#">
+      <img src="https://uploads-ssl.webflow.com/5c06b9668d64f6e440a0abd8/5c0913cea9f8074e97a71591_radr%20logo%20dark.png" alt="Logo" height="40px">
+    </a>
+    <div class="ol-menu-container">
+      <div class="ol-menu">
+        <div id="hamburger" class="hamburger-icon-container">
+            <span class="hamburger-icon"></span>
+        </div>
+        <ul>
+          <li>Dashboard</li>
+          <li>Support</li>
+          <li>Impressum</li>
+          <li>Datenschutz</li>
+          <li>Abmelden</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="ol-carousell-nav">
+      <li class='slidetoggle footer-active' data-left="0" id="top1">Aktuell</li>
+      <li class='slidetoggle' data-left="-100" id="top2">Vergangen</li>
+      <li class='slidetoggle' data-left="-200" id="top3">Einstellungen</li>
+    </ul>
+
+    <div class="collapse navbar-collapse" id="navbar">   
+        <div class="nav-item dropdown ol-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span style="position: absolute; top: 0; right: 30px;">
+            <svg width="40px" height="40px" viewBox="1340 25 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs></defs>
+      <circle id="Oval" stroke="none" fill="#F2F2F2" fill-rule="evenodd" cx="1365" cy="50" r="25"></circle>
+  </svg>
+            </span></a>
+          <div class="dropdown-menu" aria-labelledby="dropdown">
+            <a class="dropdown-item" href="#">Nachrichten</a>
+            <a class="dropdown-item" href="#">Einstellungen</a>
+            <a class="dropdown-item" href="#">Abmelden</a>
+         </div>
+        </div>
+    </div>
+  </nav>
+<div class="ol-notification-container">
+  <h1 class='ol-h1'>Neue Veranstaltung erstellen
+        <a class="close-notifications">
+            <span aria-hidden="true">&times;</span>
+        <a/>
+      </h1>
+  <div class="newEvent newEvent1" id="newEvent-1">
+            <form>
+              <fieldset>
+                <div class="row">
+                  <label for="eventname">Eventname</label>
+                  <input id="eventname" type="text" placeholder="Beispiel Name" required="" autocomplete="randomstring">
+                </div>
+              </fieldset>  
+              <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
+    Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
+    Fügen Sie keine Preise im Titel hinzu</p>
+              <fieldset>
+                <div class="row beschreibung">
+                  <label for="newEvent1-beschreibung">Beschreibung</label>
+                  <textarea id="newEvent1-beschreibung" placeholder="Beschreibung"></textarea>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="date-input">Start Datum</label>
+                  <input type="text" data-type="date" id="date-input" autocomplete="randomstring">
+                </div>
+                <div class="row">
+                  <label for="start-time">Uhrzeit</label>
+                  <input id="start-time" type="text">
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="date-input2">End Datum</label>
+                  <input type="text" data-type="date" id="date-input2" autocomplete="randomstring">
+                </div>
+                <div class="row">
+                  <label for="end-time">Uhrzeit</label>
+                  <input id="end-time" type="text">
+                </div>
+              </fieldset>
+              <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="inputPlace">Ort</label>
+                  <select id="inputPlace">
+                    <option selected>Option A</option>
+                    <option>Option B</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="image">Bild</label>
+                  <div class="file-input-vis">
+                    <span class="file-msg">Bild Hochladen</span>
+                    <input class="file-input" id="image" type="file">
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="image-url">Bild-Link</label>
+                  <input id="image-url" type="text" placeholder="http://www.bild-link.de">
+                </div>
+              </fieldset>
+              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu oder in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="offer_url">Ticketlink</label>
+                  <input id="offer-url" type="text" placeholder="http://www.ticket-link.de">
+                </div>
+                <div class="row">
+                  <label for="offer_price">Preis in €</label>
+                  <input id="offer-price" type="number" placeholder="30">
+                </div>
+                <div class="row">
+                  <label for="offer_availability">Verfügbar</label>
+                  <select id="offer_availability">
+                    <option>Verfügbar</option>
+                    <option>Ausverkauft</option>
+                    <option>Vorverkauf</option>
+                  </select>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
+              <div id="material-header-holder" style="display:none">
+                <div class="ui-datepicker-material-day">
+                </div>
+                <div class="ui-datepicker-material-date">
+                  <div class="ui-datepicker-material-month">
+                  </div>
+                  <div class="ui-datepicker-material-day-num">
+                  </div>
+                  <div class="ui-datepicker-material-year">
+                  </div>
+                </div>
+              </div>
+              <button type="submit">Event erstellen</button>
+            </form>
+          </div>
+    </div>
+<div class="ol-carousell">
+  <div>
+    <div class="ol-container" id="ol-zentrale">
+      <h1 class="ol-h1">Aktuelle Veranstaltungen</h1>
+
+    </div>
+  </div>
+  <div>
+    <div class="ol-container" id="ol-posts">
+    <h1 class="ol-h1">Vergangene Veranstaltungen</h1>
+    </div>
+  </div>
+  <div>
+    <div class="ol-container" id="ol-statistics">
+      <div style="overflow-y: scroll; height: 70vh">
+        <h1 class="ol-h1">Einstellungen</h1> 
+        <div>
+        <h5>Veranstaltungsorte bearbeiten</h5>      
+        <div id="places"></div>
+        <div class="newEvent newEvent1">
+        <form action="">
+            <fieldset>
+            <div class="row">
+              <label for="place-name">Name</label>
+              <input id="place-name" type="text" placeholder="Beispiel">
+            </div>
+            <div class="row">
+              <label for="place-address">Adresse</label>
+              <input id="place-address" type="text" placeholder="Adresse" autocomplete="off">
+              </div>
+              <div class="row">
+                <input type="submit" style="margin-top: 10px;" value="Erstellen"></input>
+              </div>
+            </fieldset>
+        </form>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+        <script src="https://ubilabs.github.io/geocomplete/jquery.geocomplete.js"> </script>
+        <script>    
+          $(function(){
+            $("#place-address").geocomplete({
+              details: "form",
+              types: ["geocode", "establishment"],
+            });
+
+            //$("#find").click(function(){
+              //$("#geocomplete").trigger("geocode");
+            //});
+          });
+    </script>
+      </div>
+      </div>
+        <div>
+          <h5>Webseite</h5>
+          <div class="newEvent newEvent1">
+        <form action="">
+            <fieldset>
+            <div class="row">
+              <label for="website">Webseite</label>
+              <input id="website" type="text" placeholder="beispiel.de">
+            </div>
+            </fieldset>
+        </form>
+      </div>
+          <p class="info">Bitte stellen Sie sicher, dass Sie die richtige Webseite eingeben. Geben Sie nur den Namen Ihrer Domain und die Endung ein. Beispiel: the-radr.com
+          </p>
+        </div>
+        <div>
+        <h5>Code zum Kopieren</h5>
+        <div>          
+          <p>
+            <code>
+                &lt;script type="application/ld+json" id="json-ld"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/gh/vorvex/oneline-app/test.js"&gt;&lt;/script&gt;
+            </code>
+          </p>
+          <p class="info">Kopieren Sie den angezeigten Code in den &lt;head&gt;-Bereich Ihrer Webseite. Dazu benötigen Sie Zugriff auf Ihre Webseite. Wenn Sie Wordpress, Typo3 oder ein anderes CMS-System benutzen können Sie den Code einfach in das dafür vorgesehene Eingabefeld einfügen. Sollten Sie keine Möglichkeit dafür haben oder Unsicher mit der Anwendung sein kontaktieren Sie Ihren Web-Entwickler. Stellen Sie sicher dass Sie nichts Löschen.
+          </p>
+        </div>
+    </div> 
+      </div>
+    </div>    
+  </div>
+</div>
+<footer class="ol-footer">
+  <div data-left="0" class='slidetoggle footer-active' id="1">
+
+<svg width="40px" height="40px" viewBox="48 607 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="if_dashboard_2639800" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(48.000000, 607.000000)">
+        <g id="Layer_1" fill="CurrentColor">
+            <path d="M20,0 C8.955,0 0,8.955 0,20 C0,31.045 8.955,40 20,40 C31.045,40 40,31.045 40,20 C40,8.955 31.045,0 20,0 Z M20,3.33333333 C20.92,3.33333333 21.6666667,4.08 21.6666667,5 C21.6666667,5.92 20.92,6.66666667 20,6.66666667 C19.08,6.66666667 18.3333333,5.92 18.3333333,5 C18.3333333,4.08 19.08,3.33333333 20,3.33333333 Z M5,21.6666667 C4.08,21.6666667 3.33333333,20.92 3.33333333,20 C3.33333333,19.08 4.08,18.3333333 5,18.3333333 C5.92,18.3333333 6.66666667,19.08 6.66666667,20 C6.66666667,20.92 5.92,21.6666667 5,21.6666667 Z M10.5716667,31.785 C9.92,32.4366667 8.865,32.4366667 8.215,31.785 C7.56333333,31.1333333 7.56333333,30.0783333 8.215,29.4283333 C8.86666667,28.7766667 9.92166667,28.7766667 10.5716667,29.4283333 C11.2233333,30.0783333 11.2233333,31.135 10.5716667,31.785 Z M10.5716667,10.5716667 C9.92,11.2233333 8.865,11.2233333 8.215,10.5716667 C7.56333333,9.92 7.56333333,8.865 8.215,8.215 C8.86666667,7.56333333 9.92166667,7.56333333 10.5716667,8.215 C11.2233333,8.865 11.2233333,9.92166667 10.5716667,10.5716667 Z M17.6433333,22.3566667 C16.3416667,21.055 16.3416667,18.945 17.6433333,17.6433333 C18.4616667,16.825 25.105,12.0433333 29.93,8.60166667 C30.8983333,7.91166667 32.09,9.10333333 31.3983333,10.07 C27.9566667,14.895 23.175,21.5383333 22.3566667,22.3566667 C21.055,23.6583333 18.945,23.6583333 17.6433333,22.3566667 Z M31.785,31.785 C31.1333333,32.4366667 30.0783333,32.4366667 29.4283333,31.785 C28.7783333,31.1333333 28.7766667,30.0783333 29.4283333,29.4283333 C30.08,28.7766667 31.135,28.7766667 31.785,29.4283333 C32.4366667,30.0783333 32.4366667,31.135 31.785,31.785 Z M35,21.6666667 C34.08,21.6666667 33.3333333,20.92 33.3333333,20 C33.3333333,19.08 34.08,18.3333333 35,18.3333333 C35.92,18.3333333 36.6666667,19.08 36.6666667,20 C36.6666667,20.92 35.92,21.6666667 35,21.6666667 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg></div>
+  <div data-left="-100" class='slidetoggle' id="2">
+
+<svg width="40px" height="40px" viewBox="128 20 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M148,60 C159.045695,60 168,51.045695 168,40 C168,28.954305 159.045695,20 148,20 C136.954305,20 128,28.954305 128,40 C128,51.045695 136.954305,60 148,60 Z M153.391667,45.4906033 L162.191667,36.6906033 C162.508333,36.3739366 162.666667,35.9989366 162.666667,35.5656033 C162.666667,35.13227 162.508333,34.75727 162.191667,34.4406033 L153.391667,25.6406033 C152.891667,25.1239366 152.316667,25.00727 151.666667,25.2906033 C151,25.5739366 150.666667,26.0656033 150.666667,26.7656033 L150.666667,30.7656033 C148.683333,30.7656033 146.883333,30.9281033 145.266667,31.2531033 C143.65,31.5781033 142.295833,32.0031033 141.204167,32.5281033 C140.1125,33.0531033 139.1625,33.7114366 138.354167,34.5031033 C137.545833,35.29477 136.908333,36.0906033 136.441667,36.8906033 C135.975,37.6906033 135.604167,38.5989366 135.329167,39.6156033 C135.054167,40.63227 134.875,41.5614366 134.791667,42.4031033 C134.708333,43.24477 134.666667,44.1656033 134.666667,45.1656033 C134.666667,48.18227 136.058333,51.5489366 138.841667,55.2656033 C139.008333,55.4656033 139.216667,55.5656033 139.466667,55.5656033 C139.583333,55.5656033 139.691667,55.5406033 139.791667,55.4906033 C140.158333,55.3406033 140.316667,55.0656033 140.266667,54.6656033 C139.533333,48.7656033 140.05,44.8239366 141.816667,42.8406033 C142.583333,41.9739366 143.666667,41.34477 145.066667,40.9531033 C146.466667,40.5614366 148.333333,40.3656033 150.666667,40.3656033 L150.666667,44.3656033 C150.666667,45.0656033 151,45.55727 151.666667,45.8406033 C151.866667,45.9239366 152.066667,45.9656033 152.266667,45.9656033 C152.7,45.9656033 153.075,45.80727 153.391667,45.4906033 Z" id="Combined-Shape" stroke="none" fill="CurrentColor" fill-rule="evenodd"></path>
+</svg></div>
+  <div data-left="-200" class='slidetoggle' id="3">
+<svg width="40px" height="40px" viewBox="208 20 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M228,60 C239.045695,60 248,51.045695 248,40 C248,28.954305 239.045695,20 228,20 C216.954305,20 208,28.954305 208,40 C208,51.045695 216.954305,60 228,60 Z M240.1875,37.8125 L237.34375,37.8125 C237.1875,37.8125 237.09375,37.71875 237.03125,37.59375 C236.8125,36.78125 236.5,36.03125 236.09375,35.3125 C236.03125,35.1875 236.03125,35.03125 236.125,34.9375 L238.125,32.9375 C238.25,32.8125 238.25,32.625 238.125,32.5 L235.5,29.84375 C235.375,29.71875 235.1875,29.71875 235.0625,29.84375 L233.0625,31.84375 C232.96875,31.9375 232.8125,31.96875 232.6875,31.90625 C231.96875,31.5 231.21875,31.1875 230.40625,30.96875 C230.28125,30.9375 230.1875,30.8125 230.1875,30.65625 L230.1875,27.8125 C230.1875,27.625 230.0625,27.5 229.875,27.5 L226.125,27.5 C225.9375,27.5 225.8125,27.625 225.8125,27.8125 L225.8125,30.65625 C225.8125,30.8125 225.71875,30.90625 225.59375,30.96875 C224.78125,31.1875 224.03125,31.5 223.3125,31.90625 C223.1875,31.96875 223.03125,31.96875 222.9375,31.875 C222.5,31.4375 221.40625,30.34375 220.9375,29.875 C220.8125,29.75 220.625,29.75 220.5,29.875 L217.84375,32.5 C217.71875,32.625 217.71875,32.8125 217.84375,32.9375 L219.84375,34.9375 C219.9375,35.03125 219.96875,35.1875 219.90625,35.3125 C219.5,36.03125 219.1875,36.78125 218.96875,37.59375 C218.9375,37.71875 218.8125,37.8125 218.65625,37.8125 L215.8125,37.8125 C215.625,37.8125 215.5,37.9375 215.5,38.125 L215.5,41.875 C215.5,42.0625 215.625,42.1875 215.8125,42.1875 L218.65625,42.1875 C218.8125,42.1875 218.90625,42.28125 218.96875,42.40625 C219.1875,43.21875 219.5,43.96875 219.90625,44.6875 C219.96875,44.8125 219.96875,44.96875 219.875,45.0625 C219.4375,45.5 218.34375,46.59375 217.875,47.0625 C217.75,47.1875 217.75,47.375 217.875,47.5 L220.53125,50.15625 C220.65625,50.28125 220.84375,50.28125 220.96875,50.15625 L222.96875,48.15625 C223.0625,48.0625 223.21875,48.03125 223.34375,48.09375 C224.0625,48.5 224.8125,48.8125 225.625,49.03125 C225.75,49.0625 225.8125,49.21875 225.8125,49.375 L225.8125,52.1875 C225.8125,52.375 225.96875,52.5 226.15625,52.5 L229.90625,52.5 C230.09375,52.5 230.1875,52.375 230.1875,52.1875 L230.1875,49.375 C230.1875,49.21875 230.3125,49.09375 230.4375,49.03125 C231.25,48.8125 232,48.5 232.71875,48.09375 C232.84375,48.03125 233,48.03125 233.09375,48.125 C233.53125,48.5625 234.625,49.65625 235.09375,50.125 C235.21875,50.25 235.40625,50.25 235.53125,50.125 L238.1875,47.46875 C238.3125,47.34375 238.3125,47.15625 238.1875,47.03125 L236.1875,45.03125 C236.09375,44.9375 236.0625,44.78125 236.125,44.65625 C236.53125,43.9375 236.84375,43.21875 237.0625,42.40625 C237.09375,42.28125 237.21875,42.1875 237.375,42.1875 L240.21875,42.1875 C240.375,42.21875 240.5,42.0625 240.5,41.875 L240.5,38.125 C240.5,37.9375 240.375,37.8125 240.1875,37.8125 Z M228,45.625 C224.90625,45.625 222.375,43.09375 222.375,40 C222.375,36.90625 224.90625,34.375 228,34.375 C231.09375,34.375 233.625,36.90625 233.625,40 C233.625,43.09375 231.09375,45.625 228,45.625 Z" id="Combined-Shape" stroke="none" fill="CurrentColor" fill-rule="evenodd"></path>
+</svg></div>
+  <div id="notifications">
+
+<svg width="40px" height="40px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="new"><g><circle cx="256" cy="256" r="253.44" fill="CurrentColor" fill-rule="evenodd"/><path d="M289.86,353.4c0,9.853-7.987,17.84-17.84,17.84H240.7c-9.853,0-17.84-7.987-17.84-17.84V158.08    c0-9.853,7.987-17.84,17.84-17.84h31.32c9.853,0,17.84,7.987,17.84,17.84V353.4z" style="fill:#FFFFFF;"/><path d="M371.86,271.4c0,9.853-7.987,17.84-17.84,17.84H158.7c-9.853,0-17.84-7.987-17.84-17.84v-31.32    c0-9.853,7.987-17.84,17.84-17.84h195.32c9.853,0,17.84,7.987,17.84,17.84V271.4z" style="fill:#FFFFFF;"/></g></g><g/>
+</svg>
+  </div>
+</footer>
+<script>
+  $('#notifications').on('click',function(){
+    $('.footer-active').addClass('footer-reminder');
+    $('.footer-active').removeClass('footer-active');
+    $(this).addClass('footer-active');
+    $('.ol-notification-container').slideDown();
+  });
+
+  $('.close-notifications').on('click',function(){
+    $('#notifications').removeClass('footer-active');
+    $('.ol-footer > div.footer-reminder').addClass('footer-active');
+    $('.ol-footer > div.footer-reminder').removeClass('footer-reminder');
+    $().addClass('footer-active');
+    $('.ol-notification-container').slideUp();
+  });
+
+  $('.ol-button').on('click', function(){
+    $('.ol-notification-container').slideDown();
+  });
+
+  $('.slidetoggle').on('click', function(){
+    $('.footer-active').removeClass('footer-active');
+    $(this).addClass('footerClass');
+    $data = $(this).data("left");
+    if ($data === 0) {
+      $('#1').addClass('footer-active');
+      $('#top1').addClass('footer-active');
+    } else if ($data === -100) {
+      $('#2').addClass('footer-active');
+      $('#top2').addClass('footer-active');
+    } else if ($data === -200) {
+      $('#3').addClass('footer-active');
+      $('#top3').addClass('footer-active');
+    }
+    $('.ol-notification-container').slideUp();
+    $('.ol-carousell').css('left', $data + 'vw');
+    navClose();
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDJn3S362p2F-Fe8OUJi4uMvDBqESmA7ds&libraries=places'></script>
+<script src='https://codepen.io/oneline/pen/QzNKXJ.js'></script>
+<script src='https://codepen.io/oneline/pen/gjMZrz.js'></script>
+<script>
+  // Klick-Funktion für #hamburger hinzufügen
+  document.getElementById('hamburger').addEventListener('click', navStatus);
+
+  // Prüfen ob die Navigation geöffnet oder geschlossen ist
+  function navStatus() {
+    if (document.body.classList.contains('hamburger-active')) {
+     navClose();
+   } 
+   else {
+     navOpen();
+   }
+  }
+
+  // Wenn die Navi geschlossen wird, Klasse für »offen« entfernen
+  function navClose() {
+    document.body.classList.remove('hamburger-active');
+  }
+
+  // Wenn die Navi geöffnet wird, Klasse für »geschlossen« entfernen
+  function navOpen() {
+    document.body.classList.add('hamburger-active');
+  }
+
+  var $fileInput = $('.file-input');
+  var $droparea = $('.file-input-vis');
+
+  // highlight drag area
+  $fileInput.on('dragenter focus click', function() {
+    $droparea.addClass('is-active');
+  });
+
+  // back to normal state
+  $fileInput.on('dragleave blur drop', function() {
+    $droparea.removeClass('is-active');
+  });
+
+  // change inner text
+  $fileInput.on('change', function() {
+    var filesCount = $(this)[0].files.length;
+    var $textContainer = $(this).prev();
+
+    if (filesCount === 1) {
+      // if single file is selected, show file name
+      var fileName = $(this).val().split('\\').pop();
+      $textContainer.text(fileName);
+    } else {
+      // otherwise show number of files
+      $textContainer.text(filesCount + ' Dateien ausgewählt');
+    }
+  });
+</script>
