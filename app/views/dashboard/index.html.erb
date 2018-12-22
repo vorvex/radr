@@ -45,7 +45,7 @@
         <a class="close-notifications">
             <span aria-hidden="true">&times;</span>
         <a/>
-      </h1>
+  </h1>
   <div class="newEvent newEvent1" id="newEvent-1">
             <form>
               <fieldset>
@@ -66,17 +66,17 @@
               <fieldset>
                 <div class="row">
                   <label for="date-input">Start Datum</label>
-                  <input type="text" data-type="date" id="date-input" autocomplete="randomstring">
+                  <input type="text" data-type="date" id="date-input" readonly="true">
                 </div>
                 <div class="row">
                   <label for="start-time">Uhrzeit</label>
-                  <input id="start-time" type="text">
+                  <input id="start-time" type="none">
                 </div>
               </fieldset>
               <fieldset>
                 <div class="row">
                   <label for="date-input2">End Datum</label>
-                  <input type="text" data-type="date" id="date-input2" autocomplete="randomstring">
+                  <input type="text" data-type="date" id="date-input2" readonly="true">
                 </div>
                 <div class="row">
                   <label for="end-time">Uhrzeit</label>
@@ -142,7 +142,8 @@
             </form>
           </div>
     </div>
-<div class="ol-carousell">
+<div class="ol-carousell-container">
+     <div class="ol-carousell">
   <div>
     <div class="ol-container" id="ol-zentrale">
       <h1 class="ol-h1">Aktuelle Veranstaltungen</h1>
@@ -225,6 +226,7 @@
     </div>    
   </div>
 </div>
+</div> 
 <footer class="ol-footer">
   <div data-left="0" class='slidetoggle footer-active' id="1">
 

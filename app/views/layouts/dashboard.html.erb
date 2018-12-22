@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="de" >
-<head>
-  <meta charset="UTF-8">
-  <title>Radr - Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
-  <style>
-      @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-body {
-  font-family: 'Roboto';
-  background: #F9FAFB;
-  margin-top: 100px;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Radr - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css'><link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <style>@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+
+      body {
+        font-family: 'Roboto';
+        background: #F9FAFB;
+        margin-top: 100px;
+        height: 100%;
+        width: 100%;
+        -webkit-font-smoothing: antialiased;
+        -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+        }
 
 .ol-navbar {
   height: 80px;
@@ -47,7 +50,6 @@ body {
     top: 20px;
     right: 20px;
   }
-
   .dropdown-menu {
     display: none;
     margin-top: 10px;
@@ -55,7 +57,9 @@ body {
     left: -120px;
   }
 }
+
 /* Burger */
+
 @media (max-width: 5000px) {
   .hamburger-icon-container {
     position: fixed !important;
@@ -69,7 +73,6 @@ body {
     border: 10px solid currentColor;
     border-radius: 3px;
   }
-
   .hamburger-icon,
   .hamburger-icon:before,
   .hamburger-icon:after {
@@ -80,20 +83,19 @@ body {
     background: #1a1933;
     transition: all 0.2s ease;
   }
-
   .hamburger-icon {
     top: 12px;
   }
-
   .hamburger-icon:before {
     top: -12px;
   }
-
   .hamburger-icon:after {
     top: 12px;
   }
 }
+
 /* Darstellung wenn das Close-Icon angezeigt werden soll */
+
 .hamburger-active .hamburger-icon-container {
   color: rgba(255, 255, 255, 0);
 }
@@ -114,15 +116,18 @@ body {
 
 .ol-notification-container {
   display: none;
-  width: 100%;
+  width: 100vw;
+  height: calc(100vh - 60px);
   margin-top: 0px;
   padding: 0px 20px;
   background: #F9FAFB;
-  top: 90px;
+  top: 80px;
   position: absolute;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
   z-index: 100;
 }
-
+      
 .close-notifications {
   margin: -7px;
   float: right;
@@ -131,6 +136,15 @@ body {
   cursor: pointer;
 }
 
+    .ol-carousell-container {
+    overflow-x: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+  }  
+  
 .ol-container {
   margin: 30px auto 0px auto;
   padding: 0px 20px;
@@ -143,15 +157,14 @@ body {
 .ol-carousell {
   display: flex;
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: 0vw;
   min-height: 80vh;
   flex-direction: row;
   transition: all 1s ease;
-  overflow-x: hidden;
 }
 
-.ol-carousell > div {
+.ol-carousell>div {
   width: 100vw;
 }
 
@@ -172,9 +185,9 @@ body {
     padding: 0px 120px;
     top: 32px;
     width: 100%;
+    overflow-x: hidden;
   }
-
-  .ol-carousell-nav > li {
+  .ol-carousell-nav>li {
     list-style: none;
     padding: 0px 20px 15px 20px;
     font-size: 20px;
@@ -183,17 +196,18 @@ body {
     border-bottom-style: none;
     border-bottom-width: 4px;
   }
-
-  .ol-carousell-nav > .footer-active {
+  .ol-carousell-nav>.footer-active {
     border-bottom-style: solid;
     font-weight: 500;
   }
 }
+
 @media (max-width: 767px) {
   .ol-carousell-nav {
     display: none;
   }
 }
+
 .ol-h1 {
   font-size: 32px;
   font-weight: 400;
@@ -209,6 +223,7 @@ body {
     display: none;
   }
 } */
+
 @media (max-width: 5000px) {
   .ol-footer {
     display: flex;
@@ -224,8 +239,7 @@ body {
     flex-direction: row;
     z-index: 200;
   }
-
-  .ol-footer > div {
+  .ol-footer>div {
     width: 25%;
     height: 100%;
     display: flex;
@@ -234,8 +248,7 @@ body {
     color: #E2E2E2;
     transition: all .4s ease;
   }
-
-  .ol-footer > div > span {
+  .ol-footer>div>span {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -248,15 +261,12 @@ body {
     right: 6%;
     text-align: center;
   }
-
-  .ol-footer > div:active {
+  .ol-footer>div:active {
     color: #7795f8;
   }
-
   .footer-active {
     color: #7795f8 !important;
   }
-
   .hamburger-active .ol-menu-container .ol-menu {
     height: 300vh !important;
     width: 300vh !important;
@@ -264,22 +274,18 @@ body {
     top: -100vh !important;
     right: -100vh !important;
   }
-
   .hamburger-active .ol-menu-container {
     display: block !important;
   }
-
-  .hamburger-active .ol-menu-container .ol-menu > ul {
+  .hamburger-active .ol-menu-container .ol-menu>ul {
     position: fixed !important;
     z-index: 1000;
     top: 10vh;
     right: 0;
   }
-
-  .hamburger-active .ol-menu-container .ol-menu > ul > li {
+  .hamburger-active .ol-menu-container .ol-menu>ul>li {
     opacity: 1 !important;
   }
-
   .ol-menu {
     position: absolute;
     height: 80px;
@@ -292,8 +298,7 @@ body {
     overflow: hidden;
     z-index: 1001;
   }
-
-  .ol-menu > ul {
+  .ol-menu>ul {
     display: flex;
     position: fixed;
     top: -80vh;
@@ -306,8 +311,7 @@ body {
     z-index: 0;
     padding: 0px;
   }
-
-  .ol-menu > ul > li {
+  .ol-menu>ul>li {
     font-size: 24px;
     line-height: 32px;
     padding: 10px 0px;
@@ -317,12 +321,10 @@ body {
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.4, 0, 1, 1);
   }
-
-  .ol-menu > ul > li:last-child {
+  .ol-menu>ul>li:last-child {
     color: #DE3618;
   }
-
-  .ol-menu > ul > li::after {
+  .ol-menu>ul>li::after {
     display: block;
     content: '';
     width: 0%;
@@ -332,17 +334,18 @@ body {
     background: CurrentColor;
     transition: all .3s ease;
   }
-
-  .ol-menu > ul > li:hover:after {
+  .ol-menu>ul>li:hover:after {
     width: 100%;
   }
 }
+
 /* Tab Container */
+
 .ol-tab-container {
   margin-top: 10px;
 }
 
-.ol-tab-container > nav {
+.ol-tab-container>nav {
   width: 100%;
   overflow-x: scroll;
   flex-wrap: nowrap !important;
@@ -448,26 +451,32 @@ body {
   color: white;
   text-align: center;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-day {
   background-color: #1F3A58;
   padding: 10px;
   font-size: 1rem;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-date {
   padding: 20px;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-month,
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-day-num,
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-year {
   padding: 5px;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-month {
   font-size: 2rem;
   text-transform: uppercase;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-day-num {
   font-size: 4.5rem;
 }
+
 .ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-year {
   font-size: 1.8rem;
   font-weight: 200;
@@ -495,6 +504,7 @@ body {
   padding-bottom: 15px;
   font-weight: 300;
 }
+
 .ui-datepicker-header .ui-datepicker-prev,
 .ui-datepicker-header .ui-datepicker-next,
 .ui-datepicker-header .ui-datepicker-title {
@@ -518,14 +528,17 @@ body {
   width: 33px;
   line-height: 36px;
 }
+
 .ui-datepicker-calendar .ui-state-highlight {
   color: #284B72;
 }
+
 .ui-datepicker-calendar .ui-state-active {
   border-radius: 50%;
   background-color: #284B72;
   color: white;
 }
+
 .ui-datepicker-calendar thead th {
   color: #999999;
   font-weight: 200;
@@ -534,10 +547,12 @@ body {
 .ui-datepicker-buttonpane {
   border: none;
 }
+
 .ui-datepicker-buttonpane .ui-state-default {
   background: white;
   border: none;
 }
+
 .ui-datepicker-buttonpane .ui-datepicker-close,
 .ui-datepicker-buttonpane .ui-datepicker-current {
   background: white;
@@ -548,6 +563,7 @@ body {
   font-weight: 200;
   outline: none;
 }
+
 .ui-datepicker-buttonpane .ui-datepicker-close:hover,
 .ui-datepicker-buttonpane .ui-datepicker-current:hover {
   background: #b4cbe5;
@@ -587,7 +603,7 @@ body {
   align-items: self-start !important;
 }
 
-.newEvent.newEvent1 .row + .row {
+.newEvent.newEvent1 .row+.row {
   border-top: 1px solid #819efc;
 }
 
@@ -602,7 +618,10 @@ body {
   white-space: nowrap;
 }
 
-.newEvent.newEvent1 input, .newEvent.newEvent1 button, .newEvent.newEvent1 select, .newEvent.newEvent1 textarea {
+.newEvent.newEvent1 input,
+.newEvent.newEvent1 button,
+.newEvent.newEvent1 select,
+.newEvent.newEvent1 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -692,6 +711,7 @@ body {
   cursor: pointer;
   opacity: 0;
 }
+
 .file-input:focus {
   outline: none;
 }
@@ -716,6 +736,7 @@ body {
     z-index: 99;
   }
 }
+
 .info {
   font-size: 14px !important;
   font-weight: 400 !important;
@@ -735,21 +756,16 @@ body {
   min-width: 16px;
   display: block;
 }
-
-    </style>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/controls.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/places_impl.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/geocoder.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/stats.js"></script>
-</head>
-
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
-</html>
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px !important;
+  }   
+  h2 {
+    font-size: 20px !important;
+  }  
+  h3, h4, h5 {
+    font-size: 18px !important;
+  }   
+}      
+      
+</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/places_impl.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/geocoder.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/stats.js"></script></head><body><p class="notice"><%=notice %></p><p class="alert"><%=alert %></p><%=yield %></body></html>
