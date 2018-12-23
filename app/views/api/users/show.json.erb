@@ -1,7 +1,7 @@
 {
   <% if @user.events.any? %>
   "data": [
-    <% @user.events.each do |event| %>
+    <% @user.events.upcoming.each do |event| %>
     {
     "jsonld": {
       "@context": "http://schema.org",

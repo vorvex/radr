@@ -41,7 +41,7 @@
     </div>
   </nav>
 <div class="ol-notification-container">
-  <h1 class='ol-h1'>Neue Veranstaltung erstellen
+  <h1 class="ol-h1">Neue Veranstaltung erstellen
         <a class="close-notifications">
             <span aria-hidden="true">&times;</span>
         <a/>
@@ -147,7 +147,7 @@
   <div>
     <div class="ol-container" id="ol-zentrale">
       <h1 class="ol-h1">Aktuelle Veranstaltungen</h1>
-
+      <%= render 'dashboard/shared/upcoming-events' %>
     </div>
   </div>
   <div>
@@ -215,7 +215,7 @@
           <p>
             <code>
                 &lt;script type="application/ld+json" id="json-ld"&gt;&lt;/script&gt;
-                &lt;script src="https://app.the-radr.com/api/users/<%= current_user.id %>.js"&gt;&lt;/script&gt;
+                &lt;script src="https://app.the-radr.com/api/users/<%= @user.id %>.js"&gt;&lt;/script&gt;
             </code>
           </p>
           <p class="info">Kopieren Sie den angezeigten Code in den &lt;head&gt;-Bereich Ihrer Webseite. Dazu benötigen Sie Zugriff auf Ihre Webseite. Wenn Sie Wordpress, Typo3 oder ein anderes CMS-System benutzen können Sie den Code einfach in das dafür vorgesehene Eingabefeld einfügen. Sollten Sie keine Möglichkeit dafür haben oder Unsicher mit der Anwendung sein kontaktieren Sie Ihren Web-Entwickler. Stellen Sie sicher dass Sie nichts Löschen.
