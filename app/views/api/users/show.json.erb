@@ -1,0 +1,34 @@
+{
+  "data": [
+    <% @user.events.each do |event| %>
+    {
+    "json-ld": {
+      "@context": "http://schema.org",
+      "@type": "Event",
+      "name": "<%= event.name %>",
+      "startDate": "<%= event.start_time.iso8601 %>",
+      <% if event.image_url != nil %>
+      "image": [
+        "<%= event.image_url %>"
+      ],
+      <% end %>
+      "description": "<%= event.description %>",
+      <% if event.end_time != nil %>
+      "endDate": "<%= event.end_time.iso8601 %>",
+      <% end %>
+      <% if event.ticket_url != nil %>
+        "offers": {
+          "@type": "Offer",
+          "url": "<%= event.ticket_url %>",
+          "price": "<%= event.price %>",
+          "priceCurrency": "EUR",
+          "availability": "<%= event.ticket_status %>"
+        }
+      <% end %>
+    },
+    "path": "<%= event.pathname %>"
+  },
+  <% end %>
+  ],
+  "url": "<%= @user.website %>",
+}
