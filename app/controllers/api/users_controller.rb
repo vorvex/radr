@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :set_location
   
   def show
-
+   
   end
   
   private

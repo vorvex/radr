@@ -1,23 +1,36 @@
 {
+  <% if @user.events.any? %>
   "data": [
     <% @user.events.each do |event| %>
     {
-    "json-ld": {
+    "jsonld": {
       "@context": "http://schema.org",
       "@type": "Event",
       "name": "<%= event.name %>",
       "startDate": "<%= event.start_time.iso8601 %>",
+      <% if event.place != nil %>
+      "location": {
+        "@type": "Place",
+        "name": "<%= event.place.name %>",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "<%= event.place.route %>",
+          "addressLocality": "<%= event.place.locality %>",
+          "postalCode": "<%= event.place.postal_code %>"
+        }
+      }, 
+      <% end %>
       <% if event.image_url != nil %>
       "image": [
         "<%= event.image_url %>"
       ],
       <% end %>
-      "description": "<%= event.description %>",
+      "description": "<%= event.description %>"
       <% if event.end_time != nil %>
-      "endDate": "<%= event.end_time.iso8601 %>",
+      ,"endDate": "<%= event.end_time.iso8601 %>"
       <% end %>
       <% if event.ticket_url != nil %>
-        "offers": {
+      ,  "offers": {
           "@type": "Offer",
           "url": "<%= event.ticket_url %>",
           "price": "<%= event.price %>",
@@ -27,8 +40,7 @@
       <% end %>
     },
     "path": "<%= event.pathname %>"
-  },
+  }<% end %>],
   <% end %>
-  ],
-  "url": "<%= @user.website %>",
+  "url": "<%= @user.website %>"
 }

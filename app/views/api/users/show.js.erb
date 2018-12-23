@@ -1,0 +1,14 @@
+var radr;
+var apiURL = "https://app.the-radr.com" + <%= @user.id %> + ".json";
+fetch(apiURL)
+.then(response => response.json())
+.then(json => {
+      radr = json
+      if (document.location.href.includes(radr.url)) {
+        for (var i = 0; i < radr.data.length; i++) {
+          if (document.location.href.includes(radr.data[i].path)) {
+            document.getElementById("json-ld").insertAdjacentHTML('beforeend', JSON.stringify(radr.data[i].jsonld));
+          }
+        }
+      }
+});
