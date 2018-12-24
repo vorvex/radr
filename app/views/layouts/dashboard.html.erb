@@ -524,6 +524,7 @@
   background: none;
   border: none;
   text-align: center;
+  margin: 0 auto;
   height: 33px;
   width: 33px;
   line-height: 36px;
@@ -768,4 +769,94 @@
   }   
 }      
       
-</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/places_impl.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/geocoder.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/stats.js"></script></head><body><p class="notice"><%=notice %></p><p class="alert"><%=alert %></p><%=yield %></body></html>
+.event-container {
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-color: white;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inner-event-container {
+  margin-left: 10px;
+  flex-grow: 2;
+}
+
+.inner-event-container > h5 {
+  margin: 0px 0 10px 0;
+  font-size: 18px;
+}
+
+.inner-event-container > p {
+  margin: 5px 0 5px 0;
+  font-size: 14px;
+}
+
+.event-container > img {
+  height: 100px;
+}
+
+.event-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.event-buttons > button, .event-buttons input {
+  margin-top: 10px;
+  border-radius: 100px;
+  background-color: rgba(221, 36, 118, .96);
+  color: #fff;
+  display: inline-block;
+  padding: 5px 15px;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+      
+.event-buttons > button:focus {
+  outline: 0px none;
+  background-color: rgba(221, 36, 118, .8);
+}
+  
+@media screen and (max-width: 700px) {
+  .event-container {
+    flex-direction: column;
+    width: calc(100% - 20px);
+    align-items: flex-start;
+  }
+  
+  .event-container > img {
+    display: none;
+    
+  }
+  
+  .event-buttons {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .event-buttons > button {
+    margin: 0px 5px;
+    width: 100px;
+  }
+}      
+</style>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/controls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/places_impl.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/geocoder.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/stats.js"></script>
+  </head>
+  <body>
+    <p class="notice"><%=notice %></p>
+    <p class="alert"><%=alert %></p>
+    <%=yield %>
+  </body>
+</html>

@@ -47,101 +47,9 @@
         <a/>
   </h1>
   <div class="newEvent newEvent1" id="newEvent-1">
-            <form>
-              <fieldset>
-                <div class="row">
-                  <label for="eventname">Eventname</label>
-                  <input id="eventname" type="text" placeholder="Beispiel Name" required="" autocomplete="randomstring">
-                </div>
-              </fieldset>  
-              <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
-    Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
-    Fügen Sie keine Preise im Titel hinzu</p>
-              <fieldset>
-                <div class="row beschreibung">
-                  <label for="newEvent1-beschreibung">Beschreibung</label>
-                  <textarea id="newEvent1-beschreibung" placeholder="Beschreibung"></textarea>
-                </div>
-              </fieldset>
-              <fieldset>
-                <div class="row">
-                  <label for="date-input">Start Datum</label>
-                  <input type="text" data-type="date" id="date-input" readonly="true">
-                </div>
-                <div class="row">
-                  <label for="start-time">Uhrzeit</label>
-                  <input id="start-time" type="none">
-                </div>
-              </fieldset>
-              <fieldset>
-                <div class="row">
-                  <label for="date-input2">End Datum</label>
-                  <input type="text" data-type="date" id="date-input2" readonly="true">
-                </div>
-                <div class="row">
-                  <label for="end-time">Uhrzeit</label>
-                  <input id="end-time" type="text">
-                </div>
-              </fieldset>
-              <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
-              <fieldset>
-                <div class="row">
-                  <label for="inputPlace">Ort</label>
-                  <select id="inputPlace">
-                    <option selected>Option A</option>
-                    <option>Option B</option>
-                  </select>
-                </div>
-              </fieldset>
-              <fieldset>
-                <div class="row">
-                  <label for="image">Bild</label>
-                  <div class="file-input-vis">
-                    <span class="file-msg">Bild Hochladen</span>
-                    <input class="file-input" id="image" type="file">
-                  </div>
-                </div>
-                <div class="row">
-                  <label for="image-url">Bild-Link</label>
-                  <input id="image-url" type="text" placeholder="http://www.bild-link.de">
-                </div>
-              </fieldset>
-              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu oder in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
-              <fieldset>
-                <div class="row">
-                  <label for="offer_url">Ticketlink</label>
-                  <input id="offer-url" type="text" placeholder="http://www.ticket-link.de">
-                </div>
-                <div class="row">
-                  <label for="offer_price">Preis in €</label>
-                  <input id="offer-price" type="number" placeholder="30">
-                </div>
-                <div class="row">
-                  <label for="offer_availability">Verfügbar</label>
-                  <select id="offer_availability">
-                    <option>Verfügbar</option>
-                    <option>Ausverkauft</option>
-                    <option>Vorverkauf</option>
-                  </select>
-                </div>
-              </fieldset>
-              <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
-              <div id="material-header-holder" style="display:none">
-                <div class="ui-datepicker-material-day">
-                </div>
-                <div class="ui-datepicker-material-date">
-                  <div class="ui-datepicker-material-month">
-                  </div>
-                  <div class="ui-datepicker-material-day-num">
-                  </div>
-                  <div class="ui-datepicker-material-year">
-                  </div>
-                </div>
-              </div>
-              <button type="submit">Event erstellen</button>
-            </form>
+            <%= render 'dashboard/shared/new-event' %>
           </div>
-    </div>
+</div>
 <div class="ol-carousell-container">
      <div class="ol-carousell">
   <div>
@@ -152,7 +60,8 @@
   </div>
   <div>
     <div class="ol-container" id="ol-posts">
-    <h1 class="ol-h1">Vergangene Veranstaltungen</h1>
+      <h1 class="ol-h1">Vergangene Veranstaltungen</h1>
+      <%= render 'dashboard/shared/old-events' %>
     </div>
   </div>
   <div>
@@ -161,23 +70,106 @@
         <h1 class="ol-h1">Einstellungen</h1> 
         <div>
         <h5>Veranstaltungsorte bearbeiten</h5>      
-        <div id="places"></div>
+        <div id="places">
+        <% @user.places.each do |place| %>
+          <div style="display: flex; padding: 10px; background-color: #dc3545; /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */ border-radius: 5px; color: white; margin-bottom: 10px;">
+            <div style="flex-grow: 2;">
+              <h5><%= place.name %></h5>
+              <p><%= place.formatted_address %></p>
+            </div>
+            <div class="event-buttons">
+              <%= button_to "Löschen", {:controller => 'place',
+      :action => 'destroy', :id => place.id }, :method => :delete, style: "background-color: #fff; color: #dc3545" %>
+            </div>
+          </div>  
+        <% end %>
+        </div>
         <div class="newEvent newEvent1">
-        <form action="">
+        <%= form_for(@new_place, :html => {role: "form"}, url: create_place_path) do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id %>
             <fieldset>
             <div class="row">
-              <label for="place-name">Name</label>
-              <input id="place-name" type="text" placeholder="Beispiel">
+              <label for="name">Name</label>
+              <%= f.text_field :name, placeholder: 'Olympiastadion' %>
             </div>
             <div class="row">
               <label for="place-address">Adresse</label>
               <input id="place-address" type="text" placeholder="Adresse" autocomplete="off">
               </div>
+              
               <div class="row">
-                <input type="submit" style="margin-top: 10px;" value="Erstellen"></input>
+                <%= f.submit "Erstellen", id: "find", style: "margin-top: 10px" %>
               </div>
-            </fieldset>
-        </form>
+              <fieldset style="display: none;">
+        <h3>Address-Details</h3>
+
+        <label>Name</label>
+        <input name="name" type="text" value="">
+
+        <label>POI Name</label>
+        <input name="point_of_interest" type="text" value="">
+
+        <label>Latitude</label>
+        <input name="lat" type="text" value="">
+
+        <label>Longitude</label>
+        <input name="lng" type="text" value="">
+
+        <label>Location</label>
+        <input name="location" type="text" value="">
+
+        <label>Location Type</label>
+        <input name="location_type" type="text" value="">
+
+        <label>Formatted Address</label>
+        <input name="formatted_address" type="text" value="">
+
+        <label>Bounds</label>
+        <input name="bounds" type="text" value="">
+
+        <label>Viewport</label>
+        <input name="viewport" type="text" value="">
+
+        <label>Route</label>
+        <input name="route" type="text" value="">
+
+        <label>Street Number</label>
+        <input name="street_number" type="text" value="">
+
+        <label>Postal Code</label>
+        <input name="postal_code" type="text" value="">
+
+        <label>Locality</label>
+        <input name="locality" type="text" value="">
+
+        <label>Sub Locality</label>
+        <input name="sublocality" type="text" value="">
+
+        <label>Country</label>
+        <input name="country" type="text" value="">
+
+        <label>Country Code</label>
+        <input name="country_short" type="text" value="">
+
+        <label>State</label>
+        <input name="administrative_area_level_1" type="text" value="">
+
+        <label>Place ID</label>
+        <input name="place_id" type="text" value="">
+
+        <label>ID</label>
+        <input name="id" type="text" value="">
+
+        <label>Reference</label>
+        <input name="reference" type="text" value="">
+
+        <label>URL</label>
+        <input name="url" type="text" value="">
+
+        <label>Website</label>
+        <input name="website" type="text" value="">
+      </fieldset>
+        <% end %>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
         <script src="https://ubilabs.github.io/geocomplete/jquery.geocomplete.js"> </script>
         <script>    
@@ -187,9 +179,9 @@
               types: ["geocode", "establishment"],
             });
 
-            //$("#find").click(function(){
-              //$("#geocomplete").trigger("geocode");
-            //});
+            $("#find").click(function(){
+              $("#geocomplete").trigger("geocode");
+            });
           });
     </script>
       </div>
@@ -197,14 +189,17 @@
         <div>
           <h5>Webseite</h5>
           <div class="newEvent newEvent1">
-        <form action="">
+        <%= form_for(@user, :html => {role: "form"}, url: update_user_path) do |f| %>
             <fieldset>
             <div class="row">
               <label for="website">Webseite</label>
-              <input id="website" type="text" placeholder="beispiel.de">
+              <%= f.text_field :website, placeholder: "beispiel.de" %>
+            </div>
+            <div class="row">
+                <%= f.submit "Aktualisieren", id: "find", style: "margin-top: 10px" %>
             </div>
             </fieldset>
-        </form>
+        <% end %>
       </div>
           <p class="info">Bitte stellen Sie sicher, dass Sie die richtige Webseite eingeben. Geben Sie nur den Namen Ihrer Domain und die Endung ein. Beispiel: the-radr.com
           </p>

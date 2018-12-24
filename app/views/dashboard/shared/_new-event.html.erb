@@ -1,0 +1,95 @@
+<%= form_for(@new_event, :html => {role: "form"}, url: create_event_path) do |f| %>
+              <%= f.hidden_field :user_id, value: @user.id %>
+              <fieldset>
+                <div class="row">
+                  <label for="name">Eventname</label>
+                  <%= f.text_field :name, autofocus: true, placeholder: 'Beispiel Name' %>
+                </div>
+              </fieldset>  
+              <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
+    Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
+    Fügen Sie keine Preise im Titel hinzu</p>
+              <fieldset>
+                <div class="row beschreibung">
+                  <label for="description">Beschreibung</label>
+                  <%= f.text_area :description, placeholder: 'Beschreibung', class: 'form-control' %>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="start_date">Start Datum</label>
+                  <%= f.text_field :start_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
+                </div>
+                <div class="row">
+                  <label for="start_time">Uhrzeit</label>
+                  <%= f.time_field :start_time, placeholder: '12:00' %>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="end_date">End Datum</label>
+                  <%= f.text_field :end_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
+                </div>
+                <div class="row">
+                  <label for="end_time">Uhrzeit</label>
+                  <%= f.time_field :end_time, placeholder: '12:00' %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="place_id">Ort</label>
+                  <%= f.collection_select(:place_id, @user.places.all, :id, :name) %>
+                </div>
+              </fieldset>
+              <p class="info">Um weitere Orte hinzuzufügen gehen Sie in den Reiter Einstellungen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="image">Bild</label>
+                  <div class="file-input-vis">
+                    <span class="file-msg">Bild Hochladen</span>
+                    <input class="file-input" id="image" type="file">
+                  </div>
+                </div>
+                <div class="row">
+                  <label for="image_url">Bild-Link</label>
+                  <%= f.url_field(:image_url, placeholder:"http://www.bild-link.de") %>
+                </div>
+              </fieldset>
+              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu oder in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="ticket_url">Ticketlink</label>
+                  <%= f.url_field(:ticket_url, placeholder:"http://www.ticket-link.de") %>
+                </div>
+                <div class="row">
+                  <label for="offer_price">Preis in €</label>
+                  <%= f.number_field(:price, in: 0.0..10000.0, placeholder:'30') %>
+                </div>
+                <div class="row">
+                  <label for="ticket_status">Verfügbar</label>
+                  <%= f.select(:ticket_status, [['Verfügbar', 'https://schema.org/InStock'], ['Ausverkauft', 'https://schema.org/SoldOut'], ['Vorverkauf', 'https://schema.org/PreOrder']]) %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="ticket_url">Link Eventseite</label>
+                  <%= f.url_field(:pathname, placeholder:"/event-name") %>
+                </div>
+              </fieldset>
+              <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein.</p>
+              <div id="material-header-holder" style="display:none">
+                <div class="ui-datepicker-material-day">
+                </div>
+                <div class="ui-datepicker-material-date">
+                  <div class="ui-datepicker-material-month">
+                  </div>
+                  <div class="ui-datepicker-material-day-num">
+                  </div>
+                  <div class="ui-datepicker-material-year">
+                  </div>
+                </div>
+              </div>
+              <button type="submit">Event erstellen</button>
+<% end %>
