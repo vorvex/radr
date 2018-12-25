@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   layout "dashboard"
-#  before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
-    @user = User.first
+    @user = current_user
     @new_event = Event.new
     @new_place = Place.new
   end

@@ -1,29 +1,221 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] --> <!-- Google Tag Manager (noscript) --> 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSNLS2Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript> 
+<!-- End Google Tag Manager (noscript) --> <!-- Load Facebook SDK for JavaScript --> 
+<div id="fb-root"></div> 
+  <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+<!-- Your customer chat code -->
+  <div class="fb-customerchat" attribution="setup_tool" page_id="1840703309477416" theme_color="#0084ff" logged_in_greeting="Hi! Wie können wir dir weiterhelfen?" logged_out_greeting="Hi! Wie können wir dir weiterhelfen?"> </div>
+  <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+    <div class="nav-container"><a href="index.html" class="w-nav-brand"><img src="/images/radr-logo.png" alt="logo" height="43" width="131"></a>
+      <nav role="navigation" class="w-nav-menu"><a href="index.html" class="nav-link w-nav-link">Wie es funktioniert</a>
+        <div data-hover="1" data-delay="150" class="w-dropdown">
+          <div class="dropdown-toggle w-dropdown-toggle" style="padding-top: 5px;">
+            <div class="icon w-icon-dropdown-toggle"></div>
+            <div class="nav-link">Menü</div>
+          </div>
+          <nav class="dropdown-list w-dropdown-list">
+            <div class="menu-left-50">
+              <a href="registrieren.html" class="dropdown-menu-wrap w-inline-block w-clearfix w--current">
+                <div class="dropdown-icon"><img src="/images/Group-7_1Group-7.png" alt=""></div>
+                <div class="dropdown-text-wrap">
+                  <div class="text-block-3">Registrieren</div>
+                  <div class="text-block-4">Jetzt Demo anfordern</div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-menu-wrap w-inline-block w-clearfix">
+                <div class="dropdown-icon"><img src="/images/Group-7_1Group-7.png" alt=""></div>
+                <div class="dropdown-text-wrap">
+                  <div class="text-block-3">Anmelden</div>
+                  <div class="text-block-4">Sie haben schon Radr?</div>
+                </div>
+              </a>
+              <a href="faq.html" target="_blank" class="dropdown-menu-wrap w-inline-block w-clearfix">
+                <div class="dropdown-icon"><img src="/images/Group-10_1Group-10.png" alt=""></div>
+                <div class="dropdown-text-wrap">
+                  <div class="text-block-3">FAQ &amp; Support</div>
+                  <div class="text-block-4">Fragen?</div>
+                </div>
+              </a>
+            </div>
+            <div class="menu-right-50">
+              <a href="datenschutz.html" target="_blank" class="dropdown-menu-wrap w-inline-block w-clearfix">
+                <div class="dropdown-icon"><img src="/images/Group-10_1Group-10.png" alt=""></div>
+                <div class="dropdown-text-wrap">
+                  <div class="text-block-3">Datenschutz</div>
+                  <div class="text-block-4">DSGVO-Stuff</div>
+                </div>
+              </a>
+              <a href="agbs.html" target="_blank" class="dropdown-menu-wrap w-inline-block w-clearfix">
+                <div class="dropdown-icon"><img src="/images/Group-10_1Group-10.png" alt=""></div>
+                <div class="dropdown-text-wrap">
+                  <div class="text-block-3">AGB&#x27;s</div>
+                  <div class="text-block-4">Unsere AGB&#x27;s</div>
+                </div>
+              </a>
+            </div>
+            <div class="div-block-6"></div>
+          </nav>
+        </div><a href="blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="nav-link w-nav-link">Blog</a><a href="#" class="nav-link w-nav-link">Anmelden</a></nav>
+      <div><a href="#demo-anfordern" class="button-3 w-hidden-medium w-hidden-small w-hidden-tiny w-button">Registrieren</a></div>
+      <div class="menu-button w-hidden-main w-hidden-medium w-hidden-small w-hidden-tiny w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+      <div style="opacity:0;display:none;-webkit-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="mobile-block w-hidden-main">
+        <div class="menu-text-2">Funktionen</div>
+        <a href="#" class="dropdown-menu-wrap-sml w-inline-block w-clearfix">
+          <div class="dropdown-icon-mob"><img src="/images/Group-10_1Group-10.png" alt="" class="image-9"></div>
+          <div class="dropdown-text-wrap">
+            <div class="text-block-15">Anmelden</div>
+            <div class="text-block-4">Curated content &amp; clonables</div>
+          </div>
+        </a>
+        <a href="registrieren.html" class="dropdown-menu-wrap-sml w-inline-block w-clearfix w--current">
+          <div class="dropdown-icon-mob"><img src="/images/Group-10_1Group-10.png" alt="" class="image-9"></div>
+          <div class="dropdown-text-wrap">
+            <div class="text-block-15">Registrieren</div>
+            <div class="text-block-4">Curated content &amp; clonables</div>
+          </div>
+        </a>
+        <a href="mailto:kontakt@the-radr.de" class="dropdown-menu-wrap-sml w-inline-block w-clearfix">
+          <div class="dropdown-icon-mob"><img src="/images/Group-10_1Group-10.png" alt="" class="image-9"></div>
+          <div class="dropdown-text-wrap">
+            <div class="text-block-15">Kontakt</div>
+            <div class="text-block-4">Curated content &amp; clonables</div>
+          </div>
+        </a>
+        <a href="faq.html" class="dropdown-menu-wrap-sml w-inline-block w-clearfix">
+          <div class="dropdown-icon-mob"><img src="/images/Group-10_1Group-10.png" alt="" class="image-9"></div>
+          <div class="dropdown-text-wrap">
+            <div class="text-block-15">FAQ&#x27;s und Support</div>
+            <div class="text-block-4">Curated content &amp; clonables</div>
+          </div>
+        </a><a href="datenschutz.html" class="link-5">Datenschutz</a><a href="impressum.html" class="link-5">Impressum</a><a href="agbs.html" class="link-5">AGB&#x27;s</a></div>
+      <div data-w-id="f199c75f-d5b2-2537-33ae-6e54ae9f234d" class="burger-2 w-hidden-main">
+        <div class="b2-bar1"></div>
+        <div class="b2-middle-wrap">
+          <div class="b2-middle-bar-left"></div>
+          <div class="b2-middle-bar-right"></div>
+        </div>
+        <div class="b2-bar3"></div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="section-hero">
+    <div class="container-register w-row">
+      <div class="column-3 w-col w-col-6">
+        <div class="container-hero">
+          <h1 class="h1">Nutzen Sie die Reichweite von Google Maps und der Suche.</h1>
+          <h3 class="h1">50€ <span class="text-span-2">100€</span></h3>
+          <p class="p1">Jetzt einmalig 50€ zahlen für Ihren Zugang</p>
+        </div>
+      </div>
+      <div class="w-col w-col-6">
+        <div class="register-formular w-form">
+            <h2 class="heading-3">Registrieren</h2>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <p><%= devise_error_messages! %></p>
+                <label for="email">Email-Addresse</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-input" %>
+                <label for="passwort">Passwort
+                <% if @minimum_password_length %>
+                <em>(Mindestens <%= @minimum_password_length %> Charaktere)</em>
+                <% end %>
+                </label>
+                <%= f.password_field :password, autocomplete: "new-password", class: "w-input" %>
+          
+                <label for="passwort_confirmation">Passwort Wiederholen</label>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-input" %>
+                <div class="w-checkbox"><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" required="" class="w-checkbox-input"><label for="checkbox" class="w-form-label">Ich bin mit den <a href="#" target="_blank">AGB&#x27;s</a> &amp; dem Datenschutz einverstanden</label></div>
+                <%= f.submit "Registrieren", class: "button-4 w-button" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div id="demo-anfordern" class="section-content">
+    <h2 class="h2">So funktioniert es:</h2>
+    <div class="container-plain">
+      <div class="columns w-row">
+        <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db670" style="opacity:0" class="w-col w-col-5">
+          <h3 class="h3">Was Sie brauchen um Radr zu benutzen:</h3>
+          <div data-w-id="287d3ba2-85d0-69ba-ae1e-c9f33f87ac7e" style="opacity:0" class="feature-wrap">
+            <div class="feature-wrap-left">
+              <div class="tick-circle"><img src="/images/check.svg" width="18" alt=""></div>
+            </div>
+            <div class="feature-wrap-right">
+              <h3 class="h4-2">Eine Webseite</h3>
+              <p class="paragraph-2">Radr funktioniert indem wir die Event-Informationen über Ihre Webseite an Google weiterleiten!</p>
+            </div>
+          </div>
+          <div data-w-id="b0ac87f0-b7fa-9e76-c46f-c6dcc5b8edba" style="opacity:0" class="feature-wrap">
+            <div class="feature-wrap-left">
+              <div class="tick-circle"><img src="/images/check.svg" width="18" alt=""></div>
+            </div>
+            <div class="feature-wrap-right">
+              <h3 class="h4-2">Zugang zu Ihrer Webseite </h3>
+              <p class="paragraph-2">Um mit Radr loszulegen müssen sie einen Code-Schnipsel in ihre Webseite einfügen. Dies ist kinderleicht und Sie bekommen zudem genaue Instruktionen von uns.</p>
+            </div>
+          </div>
+        </div>
+        <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db677" style="opacity:0" class="w-col w-col-7">
+          <div class="w-video w-embed"></div>
+        </div>
+      </div>
+      <div class="w-row">
+        <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db67a" style="opacity:0" class="w-col w-col-3 w-col-medium-6">
+          <div class="feature-block">
+            <div class="color-block"><img src="/images/Group-7_1Group-7.png" alt="" class="image-3"></div>
+            <h3 class="h4">Einfach zu erstellen</h3>
+            <p class="paragraph-2">Veranstaltungen sind in weniger als 5 Minuten eingestellt. </p>
+          </div>
+        </div>
+        <div class="w-col w-col-3 w-col-medium-6">
+          <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db683" style="opacity:0" class="feature-block">
+            <div class="colour-block-2"><img src="/images/Group-8_1Group-8.png" alt="" class="image-3"></div>
+            <h3 class="h4">Optimierung Ihrer Webseite</h3>
+            <p class="paragraph-2">Das regelmäßige einstellen von Veranstaltungen hat einen positiven Effekt auf die Position Ihrer Webseite in Suchmaschinen.</p>
+          </div>
+        </div>
+        <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db68a" style="opacity:0" class="w-col w-col-3 w-col-medium-6">
+          <div class="feature-block">
+            <div class="color-block"><img src="/images/Group-10_1Group-10.png" alt="" class="image-3"></div>
+            <h3 class="h4">Mehr Reichweite</h3>
+            <p class="paragraph-2">Profitieren Sie von den Millionen Nutzern von Google und Co. </p>
+          </div>
+        </div>
+        <div class="w-col w-col-3 w-col-medium-6">
+          <div data-w-id="d8f657d7-07d8-615d-c032-2cb2bb9db693" style="opacity:0" class="feature-block">
+            <div class="colour-block-3"><img src="/images/Group-9_1Group-9.png" alt="" class="image-3"></div>
+            <h3 class="h4">In 24 Stunden online</h3>
+            <p class="paragraph-2">Die Google Roboter durchsuchen Ihre Seite im Schnitt alle 24 Stunden nach Veränderung ab.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="section-footer">
+    <div class="footer-wrap">
+      <div class="footer-logo-top">
+        <div><a href="#" class="w-nav-brand"><img src="/images/radr-logo.png" height="40" alt="logo"></a></div>
+        <div class="div-block-5 w-hidden-tiny"><a href="#demo-anfordern" class="button-5 w-button">Registrieren</a></div>
+      </div>
+      <div class="columns-3 w-row">
+        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
+          <div class="text-block-footer">Radr</div><a href="registrieren.html" class="link-3 w--current">Registrieren</a><a href="#" target="_blank" class="link-3">Log In</a><a href="#" target="_blank" class="link-3">FAQ&#x27;s</a><a href="mailto:kontakt@the-radr.com" class="link-3">Kontakt</a></div>
+        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
+          <div class="text-block-footer">Soziale Netzwerke</div><a href="https://www.facebook.com/theradr/" target="_blank" class="link-3">Facebook</a><a href="#" class="link-3">Instagram</a><a href="#" class="link-3">LinkedIn</a><a href="#" class="link-3">YouTube</a></div>
+        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
+          <div class="text-block-footer">Blog</div><a href="blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="link-3">Event SEO</a><a href="blog/google-mybusiness-fur-veranstaltungsorte.html" class="link-3">Google MyBusiness</a><a href="blog/facebook-marketing-fur-veranstaltungen.html" class="link-3">Facebook Marketing</a></div>
+        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
+          <div class="text-block-footer">Legal</div><a href="datenschutz.html" class="link-3">Datenschutz</a><a href="impressum.html" class="link-3">Impressum</a><a href="agbs.html" class="link-3">AGB&#x27;s</a></div>
+        <div class="footer-col-right w-clearfix w-col w-col-4 w-col-small-small-stack">
+          <div class="text-block-footer">Follow Our Socials</div>
+          <div class="social-icons-wrap"><a href="https://www.facebook.com/theradr/" target="_blank" class="w-inline-block"><img src="/images/211902-48.png" width="30" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/1161953-48.png" width="27" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/216394-48-1.png" width="36" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/765195-48.png" width="35" alt="" class="image-11"></a></div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/js/webflow.js" type="text/javascript"></script>
 
-<%= render "devise/shared/links" %>

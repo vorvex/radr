@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   def update
-    @user = User.find(1)
+    @user = current_user
     @user.website = params[:user][:website]
     @user.save
     redirect_to root_path

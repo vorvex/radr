@@ -64,7 +64,7 @@
                 </div>
                 <div class="row">
                   <label for="offer_price">Preis in €</label>
-                  <%= f.number_field(:price, in: 0.0..10000.0, placeholder:'30') %>
+                  <%= f.number_field(:price, in: 0.00..10000.00, placeholder:'30,00') %>
                 </div>
                 <div class="row">
                   <label for="ticket_status">Verfügbar</label>
@@ -75,7 +75,7 @@
               <fieldset>
                 <div class="row">
                   <label for="ticket_url">Link Eventseite</label>
-                  <%= f.url_field(:pathname, placeholder:"/event-name") %>
+                  <%= f.text_field(:pathname, placeholder:"/event-name") %>
                 </div>
               </fieldset>
               <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein.</p>

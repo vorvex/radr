@@ -1,8 +1,9 @@
 class EventController < ApplicationController
   layout "dashboard"
+  before_action :authenticate_user!
   
   def create
-    @user = User.first
+    @user = current_user
     @new_event = Event.new(event_params)
     startTime = params[:event][:start_date] + " " + params[:event][:start_time]
     endTime = params[:event][:end_date] + " " + params[:event][:end_time]
@@ -21,12 +22,12 @@ class EventController < ApplicationController
   end
   
   def edit 
-    @user = User.find(1)
+    @user = current_user
     @event = Event.find(params[:id])
   end
   
   def update
-    @user = User.first
+    @user = current_user
     @event = Event.find(params[:id])
     @event.update(event_params)
     startTime = params[:event][:start_date] + " " + params[:event][:start_time]

@@ -12,7 +12,7 @@
           <li>Support</li>
           <li>Impressum</li>
           <li>Datenschutz</li>
-          <li>Abmelden</li>
+          <li><%= link_to "Abmelden", destroy_user_session_path, :method => :delete %></li>
         </ul>
       </div>
     </div>
@@ -55,6 +55,8 @@
   <div>
     <div class="ol-container" id="ol-zentrale">
       <h1 class="ol-h1">Aktuelle Veranstaltungen</h1>
+      <p class="notification notice"><%=notice %></p>
+      <p class="notification alert"><%=alert %></p>
       <%= render 'dashboard/shared/upcoming-events' %>
     </div>
   </div>

@@ -1,7 +1,7 @@
 class PlaceController < ApplicationController
   
   def create
-    @user = User.first
+    @user = current_user
     @new_place = Place.new(place_params)
     @new_place.formatted_address = params[:formatted_address]
     @new_place.route = params[:route]
