@@ -30,6 +30,7 @@ class EventController < ApplicationController
     @user = current_user
     @event = Event.find(params[:id])
     @event.update(event_params)
+    Time.zone = 'Berlin'
     startTime = params[:event][:start_date] + " " + params[:event][:start_time]
     endTime = params[:event][:end_date] + " " + params[:event][:end_time]
     @event.start_time = Time.zone.strptime(startTime, "%m/%d/%Y %H:%M")
