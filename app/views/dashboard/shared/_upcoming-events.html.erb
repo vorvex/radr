@@ -1,7 +1,7 @@
 <% @user.events.upcoming.each do |event| %>
 <div class="event-container">
   <% if event.image.attached? %>
-    <%= image_for(event.image) %>
+    <%= url_for(event.image) %>
   <% else %>
     <img src="<%= event.image_url %>" alt="">
   <% end %>

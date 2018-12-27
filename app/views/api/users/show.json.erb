@@ -22,7 +22,7 @@
       <% end %>
       <% if event.image.attached? %>
       "image": [
-        "<%= image_for(event.image) %>"
+        "https://radr.herokuapp.com<%= url_for(event.image) %>"
       ],
       <% elsif event.image_url != nil %>
       "image": [
