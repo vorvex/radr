@@ -22,7 +22,7 @@
       <% end %>
       <% if event.image.attached? %>
       "image": [
-        "<%= event.image.service_url %>"
+        "<%= image_for(event.image) %>"
       ],
       <% elsif event.image_url != nil %>
       "image": [
