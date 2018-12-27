@@ -45,7 +45,7 @@
     },
     "path": "<%= event.pathname %>"
   }
-<% index != @user.events.upcoming.size - 1 %>,<% end %>
+<% if index != @user.events.upcoming.size - 1 %>,<% end %>
 <% end %>],
   <% end %>
   "url": "<%= @user.website %>"
