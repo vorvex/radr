@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.2'
 
 gem 'devise'
 
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
 
 gem 'rest-client'
 
@@ -39,6 +39,8 @@ gem 'jquery-ui-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+ gem 'rails_real_favicon'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -59,7 +61,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rails_real_favicon'
 end
 
 group :test do
