@@ -1,6 +1,12 @@
+<% if @user.places.empty? %>
+  <%= render 'dashboard/shared/onboarding' %>
+<% end %>
+<% if @user.places.any? && @user.website.nil? %>
+  <%= render 'dashboard/shared/onboarding_step2' %>
+<% end %>
 <nav class="navbar navbar-expand-md ol-navbar">
     <a class="navbar-brand" href="#">
-      <img src="https://uploads-ssl.webflow.com/5c06b9668d64f6e440a0abd8/5c0913cea9f8074e97a71591_radr%20logo%20dark.png" alt="Logo" height="40px">
+      <img src="images/radr-logo-dark.png" alt="Logo" height="40px">
     </a>
     <div class="ol-menu-container">
       <div class="ol-menu">

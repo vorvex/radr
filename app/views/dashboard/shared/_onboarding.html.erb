@@ -1,6 +1,8 @@
 <div class="onboarding">
-  <img src="https://radr-leondahmer.codeanyapp.com/images/welcome.png" alt="">
-  <h2>Herzlich Willkommen</h2>
+  <img src="/images/welcome.png" alt="">
+  <h3>Herzlich Willkommen</h3>
+  <div class="newEvent newEvent1" style="width: calc(100% - 20px); max-width: 900px; text-align: center; overflow: scroll">
+  <p>Erstellen Sie bitte zunächst einen Veranstaltungsort</p>
   <%= form_for(@new_place, :html => {role: "form"}, url: create_place_path) do |f| %>
           <%= f.hidden_field :user_id, value: @user.id %>
             <fieldset>
@@ -86,4 +88,5 @@
         <input name="website" type="text" value="">
       </fieldset>
         <% end %>
+    </div>
 </div>

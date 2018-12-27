@@ -3,7 +3,7 @@
               <fieldset>
                 <div class="row">
                   <label for="name">Eventname</label>
-                  <%= f.text_field :name, autofocus: true, placeholder: 'Beispiel Name' %>
+                  <%= f.text_field :name, placeholder: 'Beispiel Name' %>
                 </div>
               </fieldset>  
               <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
@@ -47,8 +47,9 @@
                 <div class="row">
                   <label for="image">Bild</label>
                   <div class="file-input-vis">
-                    <span class="file-msg">Bild Hochladen</span>
-                    <input class="file-input" id="image" type="file">
+                    <%= f.file_field :image %>
+                    <!--<span class="file-msg">Bild Hochladen</span>
+                    <input class="file-input" id="image" type="file">-->
                   </div>
                 </div>
                 <div class="row">

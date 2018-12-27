@@ -4,7 +4,7 @@
   <div class="inner-event-container">
     <h5><%= event.name %></h5>
     <p><%= event.description %></p>
-    <p><%= event.start_time.strftime("%d.%m um %H:%M") %><% unless event.place_id == nil %>im <%= event.place.name %><% end %></p>
+    <p><%= event.start_time.strftime("%d.%m um %H:%M") %><% unless event.place.nil? %>im <%= event.place.name %><% end %></p>
   </div>
   <div class="event-buttons">
     <button>Bearbeiten</button>
