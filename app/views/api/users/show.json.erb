@@ -22,7 +22,7 @@
       <% end %>
       <% if event.image.attached? %>
       "image": [
-        "https://app.the-radr.com<%= url_for(event.image) %>"
+        "<%= event.image.service_url %>"
       ],
       <% elsif event.image_url != nil %>
       "image": [
