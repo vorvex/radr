@@ -1,6 +1,10 @@
 <% @user.events.upcoming.each do |event| %>
 <div class="event-container">
-  <img src="<%= event.image_url %>" alt="">
+  <% if event.image.attached? %>
+    <img src="<%= url_for(event.image) %>" alt="">
+  <% else %>
+    <img src="<%= event.image_url %>" alt="">
+  <% end %>
   <div class="inner-event-container">
     <h5><%= event.name %></h5>
     <p><%= event.description %></p>

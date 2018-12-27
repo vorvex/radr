@@ -1,7 +1,7 @@
 {
   <% if @user.events.any? %>
   "data": [
-    <% @user.events.upcoming.each do |event| %>
+    <% @user.events.upcoming.each_with_index do |event, index| %>
     {
     "jsonld": {
       "@context": "http://schema.org",
@@ -20,7 +20,11 @@
         }
       }, 
       <% end %>
-      <% if event.image_url != nil %>
+      <% if event.image.attached? %>
+      "image": [
+        "https://app.the-radr.com<%= url_for(event.image) %>"
+      ],
+      <% elsif event.image_url != nil %>
       "image": [
         "<%= event.image_url %>"
       ],
@@ -40,7 +44,9 @@
       <% end %>
     },
     "path": "<%= event.pathname %>"
-  }<% end %>],
+  }
+<% index != @user.events.upcoming.size - 1 %>,<% end %>
+<% end %>],
   <% end %>
   "url": "<%= @user.website %>"
 }
