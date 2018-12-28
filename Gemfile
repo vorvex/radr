@@ -10,6 +10,8 @@ gem 'devise'
 
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
 
+gem 'stripe'
+
 gem 'rest-client'
 
 gem 'json'

@@ -1,11 +1,13 @@
 <% if @user.places.empty? %>
+  <% @nav = false %>
   <%= render 'dashboard/shared/onboarding' %>
 <% end %>
 <% if @user.places.any? && @user.website.nil? %>
+  <% @nav = false %>
   <%= render 'dashboard/shared/onboarding_step2' %>
 <% end %>
 <nav class="navbar navbar-expand-md ol-navbar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="images/radr-logo-dark.png" alt="Logo" height="40px">
     </a>
     <div class="ol-menu-container">
@@ -13,38 +15,24 @@
         <div id="hamburger" class="hamburger-icon-container">
             <span class="hamburger-icon"></span>
         </div>
+        
         <ul>
-          <li>Dashboard</li>
-          <li>Support</li>
-          <li>Impressum</li>
-          <li>Datenschutz</li>
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="https://www.the-radr.com/support" target="_blank">Support</a></li>
+          <li><a href="https://www.the-radr.com/impressum" target="_blank">Impressum</a></li>
+          <li><a href="https://www.the-radr.com/datenschutz" target="_blank">Datenschutz</a></li>
           <li><%= link_to "Abmelden", destroy_user_session_path, :method => :delete %></li>
         </ul>
+        
       </div>
     </div>
-
-    <ul class="ol-carousell-nav">
-      <li class='slidetoggle footer-active' data-left="0" id="top1">Aktuell</li>
-      <li class='slidetoggle' data-left="-100" id="top2">Vergangen</li>
-      <li class='slidetoggle' data-left="-200" id="top3">Einstellungen</li>
-    </ul>
-
-    <div class="collapse navbar-collapse" id="navbar">   
-        <div class="nav-item dropdown ol-dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span style="position: absolute; top: 0; right: 30px;">
-            <svg width="40px" height="40px" viewBox="1340 25 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs></defs>
-      <circle id="Oval" stroke="none" fill="#F2F2F2" fill-rule="evenodd" cx="1365" cy="50" r="25"></circle>
-  </svg>
-            </span></a>
-          <div class="dropdown-menu" aria-labelledby="dropdown">
-            <a class="dropdown-item" href="#">Nachrichten</a>
-            <a class="dropdown-item" href="#">Einstellungen</a>
-            <a class="dropdown-item" href="#">Abmelden</a>
-         </div>
-        </div>
-    </div>
+    <% if @nav %>
+      <ul class="ol-carousell-nav">
+        <li class='slidetoggle footer-active' data-left="0" id="top1">Aktuell</li>
+        <li class='slidetoggle' data-left="-100" id="top2">Vergangen</li>
+        <li class='slidetoggle' data-left="-200" id="top3">Einstellungen</li>
+      </ul>
+    <% end %>
   </nav>
 <div class="ol-notification-container">
   <h1 class="ol-h1">Neue Veranstaltung erstellen
@@ -218,7 +206,7 @@
           <p>
             <code>
                 &lt;script type="application/ld+json" id="json-ld"&gt;&lt;/script&gt;
-                &lt;script src="https://app.the-radr.com/api/users/<%= @user.id %>.js"&gt;&lt;/script&gt;
+                &lt;script src="https://radr.herokuapp.com/api/users/<%= @user.id %>.js"&gt;&lt;/script&gt;
             </code>
           </p>
           <p class="info">Kopieren Sie den angezeigten Code in den &lt;head&gt;-Bereich Ihrer Webseite. Dazu benötigen Sie Zugriff auf Ihre Webseite. Wenn Sie Wordpress, Typo3 oder ein anderes CMS-System benutzen können Sie den Code einfach in das dafür vorgesehene Eingabefeld einfügen. Sollten Sie keine Möglichkeit dafür haben oder Unsicher mit der Anwendung sein kontaktieren Sie Ihren Web-Entwickler. Stellen Sie sicher dass Sie nichts Löschen.

@@ -8,7 +8,7 @@
         &lt;script type="application/ld+json" id="json-ld"&gt;&lt;/script&gt;
     </code>
     <code>
-        &lt;script src="https://app.the-radr.com/api/users/<%= @user.id %>.js"&gt;&lt;/script&gt;
+        &lt;script src="https://radr.herokuapp.com/api/users/<%= @user.id %>.js"&gt;&lt;/script&gt;
     </code>
     <%= form_for(@user, :html => {role: "form"}, url: update_user_path) do |f| %>
         <fieldset>

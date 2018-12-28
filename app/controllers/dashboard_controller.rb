@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @user = current_user
     @new_event = Event.new
     @new_place = Place.new
+    @nav = true
   end
   
 end

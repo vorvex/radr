@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md ol-navbar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="https://uploads-ssl.webflow.com/5c06b9668d64f6e440a0abd8/5c0913cea9f8074e97a71591_radr%20logo%20dark.png" alt="Logo" height="40px">
     </a>
     <div class="ol-menu-container">
@@ -8,11 +8,11 @@
             <span class="hamburger-icon"></span>
         </div>
         <ul>
-          <li>Dashboard</li>
-          <li>Support</li>
-          <li>Impressum</li>
-          <li>Datenschutz</li>
-          <li>Abmelden</li>
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="https://www.the-radr.com/support" target="_blank">Support</a></li>
+          <li><a href="https://www.the-radr.com/impressum" target="_blank">Impressum</a></li>
+          <li><a href="https://www.the-radr.com/datenschutz" target="_blank">Datenschutz</a></li>
+          <li><%= link_to "Abmelden", destroy_user_session_path, :method => :delete %></li>
         </ul>
       </div>
     </div>
@@ -98,7 +98,7 @@
                   <fieldset>
                     <div class="row">
                       <label for="ticket_url">Link Eventseite</label>
-                      <%= f.url_field(:pathname, placeholder:"/event-name") %>
+                      <%= f.text_field(:pathname, placeholder:"/event-name") %>
                     </div>
                   </fieldset>
                   <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein.</p>
@@ -118,3 +118,28 @@
     <% end %>
   </div>
 </div>
+<script>
+  // Klick-Funktion für #hamburger hinzufügen
+  document.getElementById('hamburger').addEventListener('click', navStatus);
+
+  // Prüfen ob die Navigation geöffnet oder geschlossen ist
+  function navStatus() {
+    if (document.body.classList.contains('hamburger-active')) {
+     navClose();
+   } 
+   else {
+     navOpen();
+   }
+  }
+
+  // Wenn die Navi geschlossen wird, Klasse für »offen« entfernen
+  function navClose() {
+    document.body.classList.remove('hamburger-active');
+  }
+
+  // Wenn die Navi geöffnet wird, Klasse für »geschlossen« entfernen
+  function navOpen() {
+    document.body.classList.add('hamburger-active');
+  }
+
+</script>
