@@ -33,7 +33,7 @@
       <% if event.end_time != nil %>
       ,"endDate": "<%= event.end_time.iso8601 %>"
       <% end %>
-      <% if event.ticket_url != nil %>
+      <% if event.ticket_url != "" %>
       ,  "offers": {
           "@type": "Offer",
           "url": "<%= event.ticket_url %>",
