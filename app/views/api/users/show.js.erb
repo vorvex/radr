@@ -8,6 +8,9 @@ fetch(apiURL)
         for (var i = 0; i < radr.data.length; i++) {
           if (document.location.href.includes(radr.data[i].path)) {
             document.getElementById("json-ld").insertAdjacentHTML('beforeend', JSON.stringify(radr.data[i].jsonld));
+            if (i == radr.data.length - 1 ) {
+              document.getElementById("json-ld").insertAdjacentHTML('beforeend', ',');
+            }
           }
         }
       }
