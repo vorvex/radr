@@ -10,6 +10,7 @@ fetch(apiURL)
             var script = document.createElement('script');
             script.type = 'application/ld+json';
             script.insertAdjacentHTML('beforeend', JSON.stringify(radr.data[i].jsonld));
+            document.getElementsByTagName('head')[0].appendChild(script);
           }
         }
       }
