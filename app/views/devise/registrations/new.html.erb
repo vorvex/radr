@@ -1,11 +1,24 @@
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] --> <!-- Google Tag Manager (noscript) --> 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSNLS2Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript> 
-<!-- End Google Tag Manager (noscript) --> <!-- Load Facebook SDK for JavaScript --> 
-<div id="fb-root"></div> 
-  <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- Your customer chat code -->
-  <div class="fb-customerchat" attribution="setup_tool" page_id="1840703309477416" theme_color="#0084ff" logged_in_greeting="Hi! Wie können wir dir weiterhelfen?" logged_out_greeting="Hi! Wie können wir dir weiterhelfen?"> </div>
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="1840703309477416"
+  logged_in_greeting="Hi! Wie können wir dir weiterhelfen?"
+  logged_out_greeting="Hi! Wie können wir dir weiterhelfen?">
+</div>
   <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
     <div class="nav-container"><a href="index.html" class="w-nav-brand"><img src="/images/radr-logo.png" alt="logo" height="43" width="131"></a>
       <nav role="navigation" class="w-nav-menu"><a href="index.html" class="nav-link w-nav-link">Wie es funktioniert</a>
@@ -63,7 +76,7 @@
       </div>
       <div style="opacity:0;display:none;-webkit-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0PX, 0PX, 0PX) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d" class="mobile-block w-hidden-main">
         <div class="menu-text-2">Funktionen</div>
-        <a href="#" class="dropdown-menu-wrap-sml w-inline-block w-clearfix">
+        <a href="/users/sign_in" class="dropdown-menu-wrap-sml w-inline-block w-clearfix">
           <div class="dropdown-icon-mob"><img src="/images/Group-10_1Group-10.png" alt="" class="image-9"></div>
           <div class="dropdown-text-wrap">
             <div class="text-block-15">Anmelden</div>
