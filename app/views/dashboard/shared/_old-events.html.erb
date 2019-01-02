@@ -11,7 +11,7 @@
     <p><%= event.start_time.strftime("%d.%m um %H:%M") %><% unless event.place.nil? %>im <%= event.place.name %><% end %></p>
   </div>
   <div class="event-buttons">
-    <button>Bearbeiten</button>
+    <%= button_to "Bearbeiten", {:controller => 'event', :action => 'edit', :id => event.id }, :method => :get %>
     <%= button_to "Löschen", {:controller => 'event', :action => 'destroy', :id => event.id }, :method => :delete %>
   </div>
 </div>

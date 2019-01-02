@@ -14,7 +14,7 @@
         "name": "<%= event.place.name %>",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "<%= event.place.route %>",
+          "streetAddress": "<%= event.place.route %> <%= event.place.street_number %>",
           "addressLocality": "<%= event.place.locality %>",
           "postalCode": "<%= event.place.postal_code %>"
         }

@@ -18,7 +18,7 @@
   </div> 
 </div> 
 <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<p class="alert"><%= alert %></p>
 <div class="div-block-10 w-form"> 
   
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -35,8 +35,7 @@
     <% end -%>
     <%= f.submit "Anmelden", class:"button-11 w-button" %>
     <div>
-      <a href="#" class="link-6">Passwort vergessen?</a>
-      <a href="#" class="link-6">Keine Email erhalten?</a>
+      <a href="/users/password/new" class="link-6">Passwort vergessen?</a>
     </div> 
   <% end %> 
   </div> 

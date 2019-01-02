@@ -14,6 +14,7 @@ module Radr
     config.to_prepare do
       Devise::SessionsController.layout "login"
       Devise::RegistrationsController.layout "register"
+      Devise::PasswordsController.layout "login"
     end
     
     config.action_dispatch.default_headers = {

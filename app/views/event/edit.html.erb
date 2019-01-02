@@ -18,7 +18,7 @@
     </div>
 
 </nav>
-<div style="max-width: 1100px; margin:0 auto;">
+<div style="max-width: 1100px; max-width: 90%; margin:0 auto;">
   <div class="newEvent newEvent1" id="newEvent-1">
     <h1>Event Bearbeiten</h1>
     <%= form_for(@event, :html => {role: "form"}, url: update_event_url) do |f| %>
@@ -114,7 +114,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="submit">Event bearbeiten</button>
+                  <button type="submit">Event aktualisieren</button>
     <% end %>
   </div>
 </div>

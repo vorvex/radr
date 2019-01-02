@@ -817,6 +817,7 @@
 }
 
 .event-buttons > button, .event-buttons input {
+  width: 100%;
   margin-top: 10px;
   border-radius: 100px;
   background-color: rgba(221, 36, 118, .96);
@@ -841,6 +842,10 @@
     align-items: flex-start;
   }
   
+  .button_to {
+    margin-right: 10px;
+  }
+  
   .event-container > img {
     display: none;
     
@@ -848,7 +853,9 @@
   
   .event-buttons {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
   }
   
   .event-buttons > button {
