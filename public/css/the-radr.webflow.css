@@ -4815,9 +4815,6 @@ label {
 }
 
 @media (max-width: 479px) {
-  .login {
-    position: fixed;
-  }
   
   .section-hero {
     padding-top: 90px;
