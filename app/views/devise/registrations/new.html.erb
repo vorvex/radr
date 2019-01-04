@@ -42,7 +42,7 @@
                   <div class="text-block-4">DSGVO-Stuff</div>
                 </div>
               </a>
-              <a href="https://www.the-radr.com/agb" target="_blank" class="dropdown-menu-wrap w-inline-block w-clearfix">
+              <a href="https://www.the-radr.com/agbs" target="_blank" class="dropdown-menu-wrap w-inline-block w-clearfix">
                 <div class="dropdown-icon"><img src="/images/Group-10_1Group-10.png" alt=""></div>
                 <div class="dropdown-text-wrap">
                   <div class="text-block-3">AGB&#x27;s</div>
@@ -52,7 +52,7 @@
             </div>
             <div class="div-block-6"></div>
           </nav>
-        </div><a href="blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="nav-link w-nav-link">Blog</a><a href="#" class="nav-link w-nav-link">Anmelden</a></nav>
+        </div><a href="https://www.the-radr.com/blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="nav-link w-nav-link">Blog</a><a href="/users/sign_in" class="nav-link w-nav-link">Anmelden</a></nav>
       <div><a href="/users/sign_in" class="button-3 w-button">Schon registriert?</a></div>
       <div class="menu-button w-hidden-main w-hidden-medium w-hidden-small w-hidden-tiny w-nav-button">
         <div class="w-icon-nav-menu"></div>
@@ -81,9 +81,10 @@
                 <% end %>
                 </label>
                 <%= f.password_field :password, autocomplete: "new-password", class: "w-input" %>
-          
                 <label for="passwort_confirmation">Passwort Wiederholen</label>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-input" %>
+                <label for="name">Vor- und Nachname</label>
+                <input type="text" name="name" placeholder="Max Mustermann" id="name" class="w-input" >
                 <%= render 'payment_card' %>
                 <div class="w-checkbox">
                   <input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" required="" class="w-checkbox-input">
@@ -174,16 +175,16 @@
       </div>
       <div class="columns-3 w-row">
         <div class="footer-col w-col w-col-2 w-col-small-small-stack">
-          <div class="text-block-footer">Radr</div><a href="registrieren.html" class="link-3 w--current">Registrieren</a><a href="#" target="_blank" class="link-3">Log In</a><a href="#" target="_blank" class="link-3">FAQ&#x27;s</a><a href="mailto:kontakt@the-radr.com" class="link-3">Kontakt</a></div>
+          <div class="text-block-footer">Radr</div><a href="#" class="link-3 w--current">Registrieren</a><a href="/users/sign_in" class="link-3">Log In</a><a href="https://www.the-radr.com/agbs" target="_blank" class="link-3">FAQ&#x27;s</a><a href="mailto:kontakt@the-radr.com" class="link-3">Kontakt</a></div>
         <div class="footer-col w-col w-col-2 w-col-small-small-stack">
-          <div class="text-block-footer">Soziale Netzwerke</div><a href="https://www.facebook.com/theradr/" target="_blank" class="link-3">Facebook</a><a href="#" class="link-3">Instagram</a><a href="#" class="link-3">LinkedIn</a><a href="#" class="link-3">YouTube</a></div>
-        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
-          <div class="text-block-footer">Blog</div><a href="blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="link-3">Event SEO</a><a href="blog/google-mybusiness-fur-veranstaltungsorte.html" class="link-3">Google MyBusiness</a><a href="blog/facebook-marketing-fur-veranstaltungen.html" class="link-3">Facebook Marketing</a></div>
+          <div class="text-block-footer">Soziale Netzwerke</div><a href="https://www.facebook.com/theradr/" target="_blank" class="link-3">Facebook</a><a href="https://www.instagram.com/theradrapp/" class="link-3">Instagram</a><a href="#" class="link-3">YouTube</a></div>
         <div class="footer-col w-col w-col-2 w-col-small-small-stack">
           <div class="text-block-footer">Legal</div><a href="datenschutz.html" class="link-3">Datenschutz</a><a href="impressum.html" class="link-3">Impressum</a><a href="agbs.html" class="link-3">AGB&#x27;s</a></div>
+        <div class="footer-col w-col w-col-2 w-col-small-small-stack">
+          <div class="text-block-footer" style="display: none">Blog</div><a href="blog/event-seo-so-platzieren-sie-ihre-veranstaltung-in-suchmaschinen.html" class="link-3">Event SEO</a><a href="blog/google-mybusiness-fur-veranstaltungsorte.html" class="link-3">Google MyBusiness</a><a href="blog/facebook-marketing-fur-veranstaltungen.html" class="link-3">Facebook Marketing</a></div>
         <div class="footer-col-right w-clearfix w-col w-col-4 w-col-small-small-stack">
           <div class="text-block-footer">Follow Our Socials</div>
-          <div class="social-icons-wrap"><a href="https://www.facebook.com/theradr/" target="_blank" class="w-inline-block"><img src="/images/211902-48.png" width="30" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/1161953-48.png" width="27" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/216394-48-1.png" width="36" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/765195-48.png" width="35" alt="" class="image-11"></a></div>
+          <div class="social-icons-wrap"><a href="https://www.facebook.com/theradr/" target="_blank" class="w-inline-block"><img src="/images/211902-48.png" width="30" alt="" class="image-11"></a><a href="https://www.instagram.com/theradrapp/" class="w-inline-block"><img src="/images/1161953-48.png" width="27" alt="" class="image-11"></a><a href="#" class="w-inline-block"><img src="/images/765195-48.png" width="35" alt="" class="image-11"></a></div>
         </div>
       </div>
     </div>

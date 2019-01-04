@@ -15,12 +15,13 @@ class Devise::RegistrationsController < DeviseController
   # POST /resource
   def create
     build_resource(sign_up_params)
-
+    name = params[:name]
     token = params[:stripeToken]
     email = params[:user][:email]
     description = "Radr Event Seo - " + email
     
     customer = Stripe::Customer.create(
+      :name => name,
       :email => email,
       :source => token
     )
