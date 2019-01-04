@@ -16,16 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css'><link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '194742874810094',
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v2.7'
-        });
-      };
-    </script>
+
     <style>@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
 
       body {
@@ -950,22 +941,103 @@
   </head>
   <body>
     <%=yield %>
-    <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+  $('#notifications').on('click',function(){
+    $('.footer-active').addClass('footer-reminder');
+    $('.footer-active').removeClass('footer-active');
+    $(this).addClass('footer-active');
+    $('.ol-notification-container').slideDown();
+  });
 
-<!-- Your customer chat code -->
-<div class="fb-customerchat"
-  attribution=setup_tool
-  page_id="1840703309477416"
-  logged_in_greeting="Hi! Wie können wir Ihnen weiterhelfen?"
-  logged_out_greeting="Hi! Wie können wir Ihnen weiterhelfen?">
-</div>
+  $('.close-notifications').on('click',function(){
+    $('#notifications').removeClass('footer-active');
+    $('.ol-footer > div.footer-reminder').addClass('footer-active');
+    $('.ol-footer > div.footer-reminder').removeClass('footer-reminder');
+    $().addClass('footer-active');
+    $('.ol-notification-container').slideUp();
+  });
+
+  $('.ol-button').on('click', function(){
+    $('.ol-notification-container').slideDown();
+  });
+
+  $('.slidetoggle').on('click', function(){
+    $('.footer-active').removeClass('footer-active');
+    $(this).addClass('footerClass');
+    $data = $(this).data("left");
+    if ($data === 0) {
+      $('#1').addClass('footer-active');
+      $('#top1').addClass('footer-active');
+    } else if ($data === -100) {
+      $('#2').addClass('footer-active');
+      $('#top2').addClass('footer-active');
+    } else if ($data === -200) {
+      $('#3').addClass('footer-active');
+      $('#top3').addClass('footer-active');
+    }
+    $('.ol-notification-container').slideUp();
+    $('.ol-carousell').css('left', $data + 'vw');
+    navClose();
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDJn3S362p2F-Fe8OUJi4uMvDBqESmA7ds&libraries=places'></script>
+<script src='https://codepen.io/oneline/pen/QzNKXJ.js'></script>
+<script src='https://codepen.io/oneline/pen/gjMZrz.js'></script>
+<script>
+  // Klick-Funktion für #hamburger hinzufügen
+  document.getElementById('hamburger').addEventListener('click', navStatus);
+
+  // Prüfen ob die Navigation geöffnet oder geschlossen ist
+  function navStatus() {
+    if (document.body.classList.contains('hamburger-active')) {
+     navClose();
+   } 
+   else {
+     navOpen();
+   }
+  }
+
+  // Wenn die Navi geschlossen wird, Klasse für »offen« entfernen
+  function navClose() {
+    document.body.classList.remove('hamburger-active');
+  }
+
+  // Wenn die Navi geöffnet wird, Klasse für »geschlossen« entfernen
+  function navOpen() {
+    document.body.classList.add('hamburger-active');
+  }
+
+  var $fileInput = $('.file-input');
+  var $droparea = $('.file-input-vis');
+
+  // highlight drag area
+  $fileInput.on('dragenter focus click', function() {
+    $droparea.addClass('is-active');
+  });
+
+  // back to normal state
+  $fileInput.on('dragleave blur drop', function() {
+    $droparea.removeClass('is-active');
+  });
+
+  // change inner text
+  $fileInput.on('change', function() {
+    var filesCount = $(this)[0].files.length;
+    var $textContainer = $(this).prev();
+
+    if (filesCount === 1) {
+      // if single file is selected, show file name
+      var fileName = $(this).val().split('\\').pop();
+      $textContainer.text(fileName);
+    } else {
+      // otherwise show number of files
+      $textContainer.text(filesCount + ' Dateien ausgewählt');
+    }
+  });
+</script>
   </body>
 </html>
