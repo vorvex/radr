@@ -16,6 +16,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css'><link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '194742874810094',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v2.7'
+        });
+      };
+    </script>
     <style>@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
 
       body {
@@ -906,6 +916,28 @@
   margin-bottom: 10px;
 }
       
+      .event-container-xyz:empty {
+        content: "Keine Events vorhanden";
+        height: 400px;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        background-image: url('images/rush-16.png');
+        background-position: 50% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }     
+      
 </style>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/common.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/util.js"></script>
@@ -932,8 +964,8 @@
 <div class="fb-customerchat"
   attribution=setup_tool
   page_id="1840703309477416"
-  logged_in_greeting="Hi! Wie können wir dir weiterhelfen?"
-  logged_out_greeting="Hi! Wie können wir dir weiterhelfen?">
+  logged_in_greeting="Hi! Wie können wir Ihnen weiterhelfen?"
+  logged_out_greeting="Hi! Wie können wir Ihnen weiterhelfen?">
 </div>
   </body>
 </html>
