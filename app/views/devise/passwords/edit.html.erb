@@ -1,25 +1,31 @@
-<h2>Change your password</h2>
-
+<div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+  <div class="nav-container">
+    <a href="https://www.the-radr.com" class="w-nav-brand">
+      <img src="/images/radr-logo.png" alt="logo" height="43" width="131">
+    </a>
+    <div>
+      <a href="/users/sign_up" class="button-3 w-hidden-medium w-hidden-small w-hidden-tiny w-button">Registrieren</a>
+    </div> 
+  </div> 
+</div> 
+<div class="div-block-10 w-form" style="height: 200px;">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
+  <h3 class="heading-4">Passwort ändern</h3>
+  <label for="passwort">Neues Passwort
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(Mindestens <%= @minimum_password_length %> Charaktere)</em>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
+  </label>
+  <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "w-input" %>
+  <label for="passwort_confirmation">Neues Passwort Wiederholen</label>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-input" %>
+  <%= f.submit "Passwort ändern", class:"button-11 w-button" %>
+    <div>
+      <a href="/users/sign_up" class="link-6">Registrieren</a>
+      <a href="/users/sign_in" class="link-6">Anmelden</a>
+    </div> 
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>

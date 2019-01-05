@@ -4418,23 +4418,23 @@ label {
 .alert {
     position: fixed;
     bottom: 20px;
-    right: 0;
+    left: 0;
     width: 300px;
     background-color: #ffffff;
     color: red;
     padding: 15px;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 0px 4px 4px 0px;
 }
 
 .notice {
     position: fixed;
     bottom: 20px;
-    right: 0;
+    left: 0;
     width: 300px;
     background-color: #ffffff;
-    color: yellow;
+    color: #de8e30;
     padding: 15px;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 0px 4px 4px 0px;
 }
 
 .container-register {
