@@ -27,7 +27,7 @@ class Devise::RegistrationsController < DeviseController
     )
     
     charge = Stripe::Charge.create(
-      :amount => 100,
+      :amount => 5000,
       :currency => "eur",
       :description => description,
       :receipt_email => email,
@@ -41,6 +41,7 @@ class Devise::RegistrationsController < DeviseController
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
+        UserMailer.with(user: @user).welcome_email.deliver_now
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
