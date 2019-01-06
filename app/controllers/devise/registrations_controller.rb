@@ -19,13 +19,15 @@ class Devise::RegistrationsController < DeviseController
     email = params[:user][:email]
     description = "Radr Event Seo - " + email
     
+    Stripe.api_key = ENV['stripe_api_key']
+    
     customer = Stripe::Customer.create(
       :email => email,
       :source => token
     )
     
     charge = Stripe::Charge.create(
-      :amount => 100,
+      :amount => 5000,
       :currency => "eur",
       :description => description,
       :receipt_email => email,
