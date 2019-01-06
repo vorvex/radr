@@ -940,8 +940,11 @@
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/35/6/intl/de_ALL/stats.js"></script> -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSNLS2Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <%=yield %>
-    
     <script>
   $('#notifications').on('click',function(){
     $('.footer-active').addClass('footer-reminder');
@@ -981,64 +984,64 @@
     navClose();
   });
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
-<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDJn3S362p2F-Fe8OUJi4uMvDBqESmA7ds&libraries=places'></script>
-<script src='https://codepen.io/oneline/pen/QzNKXJ.js'></script>
-<script src='https://codepen.io/oneline/pen/gjMZrz.js'></script>
-<script>
-  // Klick-Funktion für #hamburger hinzufügen
-  document.getElementById('hamburger').addEventListener('click', navStatus);
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDJn3S362p2F-Fe8OUJi4uMvDBqESmA7ds&libraries=places'></script>
+    <script src='https://codepen.io/oneline/pen/QzNKXJ.js'></script>
+    <script src='https://codepen.io/oneline/pen/gjMZrz.js'></script>
+    <script>
+      // Klick-Funktion für #hamburger hinzufügen
+      document.getElementById('hamburger').addEventListener('click', navStatus);
 
-  // Prüfen ob die Navigation geöffnet oder geschlossen ist
-  function navStatus() {
-    if (document.body.classList.contains('hamburger-active')) {
-     navClose();
-   } 
-   else {
-     navOpen();
-   }
-  }
+      // Prüfen ob die Navigation geöffnet oder geschlossen ist
+      function navStatus() {
+        if (document.body.classList.contains('hamburger-active')) {
+         navClose();
+       } 
+       else {
+         navOpen();
+       }
+      }
 
-  // Wenn die Navi geschlossen wird, Klasse für »offen« entfernen
-  function navClose() {
-    document.body.classList.remove('hamburger-active');
-  }
+      // Wenn die Navi geschlossen wird, Klasse für »offen« entfernen
+      function navClose() {
+        document.body.classList.remove('hamburger-active');
+      }
 
-  // Wenn die Navi geöffnet wird, Klasse für »geschlossen« entfernen
-  function navOpen() {
-    document.body.classList.add('hamburger-active');
-  }
+      // Wenn die Navi geöffnet wird, Klasse für »geschlossen« entfernen
+      function navOpen() {
+        document.body.classList.add('hamburger-active');
+      }
 
-  var $fileInput = $('.file-input');
-  var $droparea = $('.file-input-vis');
+      var $fileInput = $('.file-input');
+      var $droparea = $('.file-input-vis');
 
-  // highlight drag area
-  $fileInput.on('dragenter focus click', function() {
-    $droparea.addClass('is-active');
-  });
+      // highlight drag area
+      $fileInput.on('dragenter focus click', function() {
+        $droparea.addClass('is-active');
+      });
 
-  // back to normal state
-  $fileInput.on('dragleave blur drop', function() {
-    $droparea.removeClass('is-active');
-  });
+      // back to normal state
+      $fileInput.on('dragleave blur drop', function() {
+        $droparea.removeClass('is-active');
+      });
 
-  // change inner text
-  $fileInput.on('change', function() {
-    var filesCount = $(this)[0].files.length;
-    var $textContainer = $(this).prev();
+      // change inner text
+      $fileInput.on('change', function() {
+        var filesCount = $(this)[0].files.length;
+        var $textContainer = $(this).prev();
 
-    if (filesCount === 1) {
-      // if single file is selected, show file name
-      var fileName = $(this).val().split('\\').pop();
-      $textContainer.text(fileName);
-    } else {
-      // otherwise show number of files
-      $textContainer.text(filesCount + ' Dateien ausgewählt');
-    }
-  });
-</script>
+        if (filesCount === 1) {
+          // if single file is selected, show file name
+          var fileName = $(this).val().split('\\').pop();
+          $textContainer.text(fileName);
+        } else {
+          // otherwise show number of files
+          $textContainer.text(filesCount + ' Dateien ausgewählt');
+        }
+      });
+    </script>
   </body>
 </html>
