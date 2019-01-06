@@ -9,10 +9,10 @@ en:
     failure:
       already_authenticated: "Sie sind bereits registriert."
       inactive: "Ihr Akkount wurde noch nicht aktiviert."
-      invalid: "Ungültiger %{authentication_keys} oder Passwort."
+      invalid: "Ungültige %{authentication_keys} oder Passwort."
       locked: "Ihr Akkount ist gesperrt."
       last_attempt: "Sie habene einen Versuch bevor Ihr Akkount gesperrt wird."
-      not_found_in_database: "Ungültiger %{authentication_keys} oder Passwort."
+      not_found_in_database: "Ungültige %{authentication_keys} oder Passwort."
       timeout: "Ihre Sitzung ist abgelaufen bitte melden Sie sich erneut an um fortzufahren"
       unauthenticated: "Sie müssen angemeldet sein um diesen Bereich zu nutzen"
       unconfirmed: "Sie müssen Ihre Email bestätigen."
