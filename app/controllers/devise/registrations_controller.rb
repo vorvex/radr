@@ -27,7 +27,7 @@ class Devise::RegistrationsController < DeviseController
     )
     
     charge = Stripe::Charge.create(
-      :amount => 5000,
+      :amount => 100,
       :currency => "eur",
       :description => description,
       :receipt_email => email,
