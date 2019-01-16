@@ -60,6 +60,41 @@ class Devise::RegistrationsController < DeviseController
       redirect_to new_user_registration_path
   end
 
+  #Trial
+  
+   def new_trial
+    build_resource
+    yield resource if block_given?
+    respond_with resource
+  end
+
+  def create_trial
+    build_resource(sign_up_params)
+    
+    website = params[:user][:website]
+    
+    resource.website = website
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        UserMailer.with(user: @user).welcome_email.deliver_now
+        sign_up(resource_name, resource)
+        after_sign_up_trial_path_for(resource)
+      else
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_trial_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
+    end
+    
+  end
+  
   # GET /resource/edit
   def edit
     render :edit
@@ -139,10 +174,22 @@ class Devise::RegistrationsController < DeviseController
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource) if is_navigational_format?
   end
+  
+  def after_sign_up_trial_path_for(resource)
+    sign_in(resource_name, resource)
+    redirect_to trial_place_path
+  end
 
   # The path used after sign up for inactive accounts. You need to overwrite
   # this method in your own RegistrationsController.
   def after_inactive_sign_up_path_for(resource)
+    scope = Devise::Mapping.find_scope!(resource)
+    router_name = Devise.mappings[scope].router_name
+    context = router_name ? send(router_name) : self
+    context.respond_to?(:root_path) ? context.root_path : "/"
+  end
+  
+  def after_inactive_sign_up_trial_path_for(resource)
     scope = Devise::Mapping.find_scope!(resource)
     router_name = Devise.mappings[scope].router_name
     context = router_name ? send(router_name) : self

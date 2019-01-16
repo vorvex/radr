@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     end
   end
   
+  # Trial
+  devise_scope :user do
+    get 'registrieren', :to => 'devise/registrations#new_trial'
+    post 'registrieren' => 'devise/registrations#create_trial', as: :registration_trial
+  end
+  
+  get 'trial/veranstaltungsort' => 'trial#trial_place', as: :trial_place
+  
   patch 'user-akutalisieren' => 'user#update', as: :update_user
   
   get 'event/:id' => 'event#edit', as: :edit_event
