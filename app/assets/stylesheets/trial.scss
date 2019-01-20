@@ -1,3 +1,503 @@
 // Place all the styles related to the trial controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+
+body {
+  font-family: 'Roboto';
+  background: #F9FAFB;
+  margin-top: 100px !important;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.radr-navbar {
+  height: 80px;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 4px 1px #F2F2F2 !important;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  top: 0px;
+  left: 0px;
+}
+.radr-navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.newEvent.newEvent1 * {
+  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.newEvent.newEvent1 fieldset {
+  margin: 15px 0px;
+  padding: 0;
+  border-style: none;
+  background-color: #7795f8;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+  border-radius: 4px;
+}
+.newEvent.newEvent1 .row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}
+.row.beschreibung {
+  -ms-flex-align: self-start;
+  align-items: self-start !important;
+}
+.newEvent.newEvent1 .row+.row {
+  border-top: 1px solid #819efc;
+}
+.newEvent.newEvent1 label {
+  width: 20%;
+  min-width: 100px;
+  padding: 11px 0;
+  margin-right: 5px;
+  color: #c4f0ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.newEvent.newEvent1 input,
+.newEvent.newEvent1 button,
+.newEvent.newEvent1 select,
+.newEvent.newEvent1 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+.newEvent.newEvent1 input:-webkit-autofill {
+  -webkit-text-fill-color: #fce883;
+  transition: background-color 100000000s;
+  -webkit-animation: 1ms void-animation-out;
+}
+.newEvent.newEvent1 input {
+  flex-grow: 2;
+  padding: 0px 15px 10px 0;
+  color: #fff;
+  background-color: transparent;
+  -webkit-animation: 1ms void-animation-out;
+}
+.newEvent.newEvent1 textarea {
+  height: 100px;
+  flex-grow: 2;
+  padding: 11px 15px 11px 0;
+  color: #fff;
+  background-color: transparent;
+  -webkit-animation: 1ms void-animation-out;
+}
+.newEvent.newEvent1 select {
+  flex-grow: 2;
+  padding: 0px 15px 11px 0;
+  color: #fff;
+  background-color: transparent;
+  -webkit-animation: 1ms void-animation-out;
+}
+.newEvent.newEvent1 input::-webkit-input-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 input::-moz-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 input:-ms-input-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 textarea::-webkit-input-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 textarea::-moz-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 textarea:-ms-input-placeholder {
+  color: #87bbfd;
+}
+.newEvent.newEvent1 button {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 20px 0 80px 0;
+  background-color: #dd2476;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+.newEvent.newEvent1 button:active {
+  background-color: #d782d9;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
+}
+.file-input {
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.file-input:focus {
+  outline: none;
+}
+.file-input-vis {
+  flex-grow: 3;
+  color: #fff;
+  cursor: pointer;
+}
+
+.trial-container {
+  max-width: 1100px;
+  width: 90vw;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trial-container.sticky {
+  position: fixed;
+  height: calc(100vh - 100px);
+  top: 90px;
+  max-width: 90vw;
+  left: 5vw;
+}
+
+.trial-left{
+  width:100%;
+  margin-right: 10px;
+  overflow: scroll;
+  flex-shrink: 20;
+}
+
+.trial-right{
+  width: 400px;
+  margin-left: 10px;
+  flex-grow: 20;
+}
+
+.search-preview {
+  background-color: #fff;
+  margin: 0 0 10px 0;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-radius: 8px;
+  border-bottom: 1px hidden #fff;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+}
+
+.preview-header{
+  padding: 10px 16px 0px 16px;
+}
+
+.preview-header > hr {
+  margin-top: 10px;
+}
+
+#preview-name {
+  display: block;
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 1px;
+  margin-bottom: -1px;
+  color: #4B11A8;
+}
+
+#preview-link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #202124;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: -1px;
+}
+
+.preview-body {
+  padding: 0px 16px 0px 16px;
+}
+
+#preview-description {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.preview-date {
+  display: flex;
+  padding: 10px 16px 10px 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-arrow {
+  margin-left: 16px;
+  color: rgba(0,0,0,.54);
+  fill: currentColor;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  width: 24px;
+}
+
+.search-preview > hr {
+  margin: 0;
+}
+
+#preview-event {
+  display: block;
+  width: 100%;
+}
+
+.preview-time {
+  display: block;
+  width: 100%;
+  color: #70757A;
+}
+
+  #map {
+    width: 100%;
+    height: calc(100vh - 140px);
+    border-radius: 4px;
+  }
+
+@media screen and (max-width: 860px) {
+  
+  .iframe {
+   display: none;  
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+  }
+  
+  .search-preview {
+    width: 100%;
+  }
+  
+  .on-top {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .trial-container {
+    flex-direction: column;
+  }
+  
+  .trial-container.sticky {
+    position: relative;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+  .trial-left{
+    width:100%;
+    margin-right: 0px;
+    order: 2;
+  }
+
+  .trial-right{
+    width: 100%;
+    margin-left: 0px;
+    height: 300px;
+    order: 3;
+  }
+
+  #map {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+.ui-datepicker,
+.ui-datepicker-material-header {
+  font-family: 'Roboto';
+  position: fixed !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  z-index: 202 !important;
+  width: 100% !important;
+  top: auto !important;
+}
+.ui-datepicker-material-header {
+  display: block;
+  background-color: #284B72;
+  color: white;
+  text-align: center;
+}
+.ui-datepicker-material-header .ui-datepicker-material-day {
+  background-color: #1F3A58;
+  padding: 10px;
+  font-size: 1rem;
+}
+.ui-datepicker-material-header .ui-datepicker-material-date {
+  padding: 20px;
+}
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-month,
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-day-num,
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-year {
+  padding: 5px;
+}
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-month {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-day-num {
+  font-size: 4.5rem;
+}
+.ui-datepicker-material-header .ui-datepicker-material-date .ui-datepicker-material-year {
+  font-size: 1.8rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.4);
+}
+.ui-datepicker {
+  padding: 0;
+  border: none;
+  /* box-shadow: 0 12px 36px 16px rgba(0,0,0,0.24); */
+  width: 325px;
+}
+.ui-corner-all {
+  border-radius: 0;
+}
+.ui-widget-header {
+  border: 0;
+}
+.ui-datepicker-header {
+  text-align: center;
+  background: white;
+  padding-bottom: 15px;
+  font-weight: 300;
+}
+.ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker-header .ui-datepicker-next,
+.ui-datepicker-header .ui-datepicker-title {
+  border: none;
+  outline: none;
+  margin: 5px;
+}
+.ui-datepicker-prev.ui-state-hover,
+.ui-datepicker-next.ui-state-hover {
+  border: none;
+  outline: none;
+  background: #b4cbe5;
+}
+.ui-datepicker-calendar .ui-state-default {
+  background: none;
+  border: none;
+  text-align: center;
+  margin: 0 auto;
+  height: 33px;
+  width: 33px;
+  line-height: 36px;
+}
+.ui-datepicker-calendar .ui-state-highlight {
+  color: #284B72;
+}
+.ui-datepicker-calendar .ui-state-active {
+  border-radius: 50%;
+  background-color: #284B72;
+  color: white;
+}
+.ui-datepicker-calendar thead th {
+  color: #999999;
+  font-weight: 200;
+}
+.ui-datepicker-buttonpane {
+  border: none;
+}
+.ui-datepicker-buttonpane .ui-state-default {
+  background: white;
+  border: none;
+}
+.ui-datepicker-buttonpane .ui-datepicker-close,
+.ui-datepicker-buttonpane .ui-datepicker-current {
+  background: white;
+  color: #284B72;
+  text-transform: uppercase;
+  border: none;
+  opacity: 1;
+  font-weight: 200;
+  outline: none;
+}
+.ui-datepicker-buttonpane .ui-datepicker-close:hover,
+.ui-datepicker-buttonpane .ui-datepicker-current:hover {
+  background: #b4cbe5;
+}
+
+.info {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-left: 10px;
+  display: flex;
+}
+.info::before {
+  content: "";
+  background-image: url(https://img.icons8.com/small/32/000000/info.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 2px;
+  left: -10px;
+  position: relative;
+  height: 16px;
+  min-width: 16px;
+  display: block;
+}
+
+.StripeElement--webkit-autofill {
+  background: #7795f8 !important;
+}
+
+.form-control {
+  background-color: #7795f8 !important;
+}
+
+.rechnung {
+  width: 400px;
+  padding: 15px;
+  border-radius: 4px;
+  border: solid 1px #dedede;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.rechnung > hr {
+  margin: 10px -15px;
+}
+
+.rechnung > h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.rechnung table {
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .rechnung {
+    width: 100%;
+    margin: 0;
+  }
+}

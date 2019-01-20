@@ -1,0 +1,5 @@
+class AddPerformerTypeToEvent < ActiveRecord::Migration[5.2]
+  def change
+    add_column :events, :performer_type, :string
+  end
+end

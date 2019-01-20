@@ -6,13 +6,26 @@
     <%= csp_meta_tag %>
     <%= render 'application/favicon' %>
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shared/google-analytics' %>
-    <style>.alert, .notice { text-align: center; } .login { height: 100vh; overflow: hidden; }</style>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJn3S362p2F-Fe8OUJi4uMvDBqESmA7ds&libraries=places"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>.alert, .notice { text-align: center; display: none; }</style>
   </head>
-
   <body> 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSNLS2Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="radr-navbar">
+      <a class="radr-navbar-brand" href="https://www.the-radr.com">
+        <img src="https://app.the-radr.com/images/radr-logo-dark.png" alt="Logo" height="40px">
+      </a>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

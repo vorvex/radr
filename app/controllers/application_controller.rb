@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
     def json_request?
       request.format.js?
     end
+  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_014830) do
+ActiveRecord::Schema.define(version: 2019_01_18_232523) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_01_16_014830) do
     t.string "image_url"
     t.string "start_date"
     t.string "end_date"
+    t.string "performer"
+    t.string "performer_type"
   end
 
   create_table "places", force: :cascade do |t|
@@ -107,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_01_16_014830) do
     t.string "plan", default: "free"
     t.integer "event_count", default: 0
     t.string "type"
+    t.datetime "paid_at"
+    t.boolean "confirmed", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

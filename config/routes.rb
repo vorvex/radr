@@ -14,6 +14,21 @@ Rails.application.routes.draw do
   end
   
   get 'trial/veranstaltungsort' => 'trial#trial_place', as: :trial_place
+  post 'trial/veranstaltungsort' => 'trial#create_trial_place', as: :create_trial_place
+  
+  get 'trial/event' => 'trial#trial_event', as: :trial_event
+  post 'trial/event' => 'trial#create_trial_event', as: :create_trial_event
+  
+  get 'trial/payment' => 'trial#trial_payment', as: :trial_payment
+  patch 'trial/payment' => 'trial#create_trial_payment', as: :create_trial_payment
+
+  get 'trial/code' => 'trial#trial_code', as: :trial_code
+
+  get 'kostenlos' => 'trial#trial_free', as: :free
+  post 'kostenlos' => 'trial#trial_free_code',  as: :trial_free_code
+  
+  
+  get 'konto-freischalten' => 'trial#freischalten', as: :freischalten
   
   patch 'user-akutalisieren' => 'user#update', as: :update_user
   

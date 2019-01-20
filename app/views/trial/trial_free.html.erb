@@ -1,0 +1,165 @@
+<div class="trial-container sticky">
+  <div class="trial-left">
+    <h1>Erstellen Sie hier Ihre kostenlose Veranstaltung</h1>
+    <div class="newEvent newEvent1">
+      <%= form_for(@event, url: trial_free_code_path) do |f| %>
+              <fieldset>
+                <div class="row">
+                  <label for="name">Eventname</label>
+                  <input type="text" name="name" id="name" placeholder="Name" data-name="code_name">
+                </div>
+              </fieldset>  
+              <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
+    Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
+    Fügen Sie keine Preise im Titel hinzu</p>
+              <fieldset>
+                <div class="row beschreibung">
+                  <label for="description">Beschreibung</label>
+                  <textarea id="description" name="description" cols="35" rows="4" placeholder="Beschreibung" data-name="code_description"></textarea>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="start_date">Start Datum</label>
+                  <input type="date" name="start_date" placeholder="01.01.2019" id="start_date">
+                </div>
+                <div class="row">
+                  <label for="start_time">Uhrzeit</label>
+                  <input type="time" name="start_time"  placeholder="12:00">
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="end_date">End Datum</label>
+                  <input type="date" placeholder="01.01.2019" name="end_date">
+                </div>
+                <div class="row">
+                  <label for="end_time">Uhrzeit</label>
+                  <input type="time" name="end_time" placeholder="12:00">
+                </div>
+              </fieldset>
+              <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="place_name">Ort</label>
+                  <input type="text" name="place_name" placeholder="Olympia-Stadion" data-name="code_place">
+                </div>
+                <div class="row">
+                  <label for="street_address">Straße</label>
+                  <input type="text"name="street_address" placeholder="Straße, Hausnummer" data-name="code_address">
+                </div>
+                <div class="row">
+                  <label for="place_locality">Stadt</label>
+                  <input type="text" name="place_locality" placeholder="Stadt" data-name="code_city">
+                </div>
+                <div class="row">
+                  <label for="plz">PLZ</label>
+                  <input type="text" name="plz" placeholder="PLZ" data-name="code_plz">
+                </div>
+              </fieldset>
+              <p class="info">Um weitere Orte hinzuzufügen gehen Sie in den Reiter Einstellungen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="image">Bild</label>
+                  <p style="color: white;">(Bild hochladen ist in der freien Version nicht verfügbar)</p>
+                </div>
+                <div class="row">
+                  <label for="image">Bild-Link</label>
+                  <input type="url" name="image" placeholder="https://www.bild-link.de" data-name="code_image">
+                </div>
+              </fieldset>
+              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu in dem Sie die URL eines Bildes einfügen. Wenn Sie keinen Link haben empfehlen wir Ihnen Radr Premium <a href="/registrieren">mehr erfahren</a> </p>
+              <fieldset>
+                <div class="row">
+                  <label for="ticket_url">Ticketlink</label>
+                  <input type="url" name="ticket_url" placeholder="https://www.ticket-link.de" data-name="code_ticket">
+                </div>
+                <div class="row">
+                  <label for="ticket_price">Preis in €</label>
+                  <input type="number" name="ticket_price" data-name="code_price">
+                </div>
+                <div class="row">
+                  <label for="ticket_status">Verfügbar</label>
+                  <select name="ticket_status" name="ticket_status" data-name="code_ticket_status">
+                    <option value="https://schema.org/InStock">Verfügbar</option>
+                    <option value="https://schema.org/SoldOut">Ausverkauft</option>
+                    <option value="https://schema.org/PreOrder">Vorverkauf</option>
+                  </select>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="performer_name">Performer (wenn vorhanden)</label>
+                  <input type="text" placeholder="Name" name="performer_name" data-name="code_performer">
+                </div>
+                <div class="row">
+                  <label for="performer_type">Typ</label>
+                  <select name="performer_type" name="performer_type" data-name="code_performer_type">
+                    <option value="PerformingGroup">Band</option>
+                    <option value="Person">Sänger</option>
+                    <option value="Person">DJ</option>
+                    <option value="DanceGroup">Tanzgruppe</option>
+                  </select>
+                </div>
+              </fieldset>
+              <p class="info">Wenn ein Sänger, eine Band oder Tanzgruppe bei dieser Veranstaltung auftritt tragen Sie diesen/diese hier ein.</p>
+              <button id="submit">Event erstellen</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="trial-right on-top">
+    <% if @code == true %>
+    <h3>Code</h3>
+    <div class="search-preview" id="preview" style="padding: 15px;" >
+      <code>
+        <span>&lt;script type="application/ld+json"&gt;</span><br>
+          {<br>
+            "@context": "https://schema.org",
+            "@type": "Event",
+        "name": "<%= @name %>",
+            "startDate": "<%= @start_date %>",
+            "location": {
+              "@type": "Place",
+              "name": "<%= @place_name %>",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "<%= @place_address %>",
+        "addressLocality": "<%= @place_locality %>",
+                "postalCode": "<%= @place_plz %>"
+              }
+            },
+            <% if @image != "" %>
+            "image": ["<%= @image %>"
+             ],
+            <% end %>
+            "description": "<%= @description %>"
+            <% if @end_date != "" %>,
+            "endDate": "<%= @end_date %>"
+            <% end %>
+            <% if @ticket_url != "" %>,
+            "offers": {
+              "@type": "Offer",
+              "url": "<%= @ticket_url %>",
+              "price": "<%= @ticket_price %>",
+              "priceCurrency": "EUR",
+              "availability": "<%= @ticket_status %>"
+            }
+            <% end %>
+            <% if @performer_name != "" %>,
+            "performer": {
+              "@type": "<%= @performer_type %>",
+              "name": "<%= @performer_name %>"
+            } <br>
+            <% end %>
+          } <br>
+          &lt;/script&gt;
+      </code>
+    </div>
+    <p>
+      Kopieren Sie den oben angezeigten Code in das Kopfelement Ihrer Webseite. <br>
+      In Radr Premium können Sie stattdessen einmal eine Zeile Code in Ihre Webseite einbinden und dann automatisiert in Ihre Webseite übertragen. <a href="/registrieren">Jetzt mehr erfahren.</a>
+    </p>
+    <% end %>
+  </div>
+</div>

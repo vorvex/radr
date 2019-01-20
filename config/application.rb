@@ -10,7 +10,7 @@ module Radr
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    
+    config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
     config.to_prepare do
       Devise::SessionsController.layout "login"
       Devise::RegistrationsController.layout "register"

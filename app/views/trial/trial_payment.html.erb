@@ -1,0 +1,57 @@
+<div style="width: 90vw; max-width: 1100px; margin: auto;"><h1 style="font-size: 2rem;">Bezahlinformationen</h1></div>
+<div class="trial-container">
+  <div class="newEvent newEvent1" style="width: 100%;">   
+    <%= form_for(@user, :html => {role: "form"}, url: create_trial_payment_path) do |f| %>
+    <fieldset>
+      <div class="row">
+        <label for="vorname">Vorname</label>
+        <input type="text" placeholder="Max" autocomplete="vorname">
+      </div>
+      <div class="row">
+        <label for="nachname">Nachname</label>
+        <input type="text" placeholder="Mustermann" autocomplete="nachname">
+      </div>
+      </fieldset>
+      <%= render '/devise/registrations/payment_card2' %>
+      <fieldset>
+      <div class="row">
+          <%= f.submit "Jetzt bezahlen", style: "margin-top: 10px", id: "payment" %>
+      </div>
+      </fieldset>
+    <% end %>
+  </div>
+  <div class="rechnung">
+    <h2>Zusammenfassung</h2>
+      <hr>
+      <table class="sum">
+        <tr>
+          <td>Zwischensumme</td>
+          <td style="text-align: right;">0€</td>
+        </tr> 
+      </table>
+      <hr>
+      <table class="zahlbetrag">
+        <tr style="font-size: 1.2rem;">
+          <td>Zahlbetrag</td>
+          <td style="text-align: right;">0€</td>
+        </tr> 
+        <% if @user.plan == "premium" %>
+          <tr>
+            <td>Zahlbetrag am 01.02.2019</td>
+            <td style="text-align: right;">50€</td>
+          </tr>
+          <tr>
+            <td style="font-size: 0.8rem;">Jederzeit kündbar vor Ablauf der Testphase</td>
+          </tr>
+        <% else %>
+          <tr>
+            <td>Zahlung Nächste Veranst.</td>
+            <td style="text-align: right;">6€</td>
+          </tr>
+          <tr>
+            <td style="font-size: 0.8rem;">Es enstehen keine weitere Kosten vor Erstellung der zweiten Veranstaltung</td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+</div>

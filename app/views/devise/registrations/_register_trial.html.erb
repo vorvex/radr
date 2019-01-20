@@ -1,0 +1,36 @@
+<div class="register-formular w-form">
+            <h2 class="heading-3">Registrieren</h2>
+            <%= form_for(resource, as: resource_name, url: registration_trial_path) do |f| %>
+              <p><%= devise_error_messages! %></p>
+                <label for="email">Email-Addresse</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-input" %>
+                <label for="website">Webseite <em>Bsp.: ihre-webseite.de</em></label>
+                <%= f.text_field :website, autocomplete: "url", class:"w-input" %>
+                <label for="plan">Paket</label>
+                <select id="plan" name="plan" data-name="plan" required="" class="w-select">
+                  <option value="">Paket wählen</option>
+                  <option value="keinebindung" <% if params[:paket] == "keine-bindung" %>selected<% end %>>Keine Bindung 6€/Veranstaltung</option>
+                  <option value="premium" <% if params[:paket] == "premium" %>selected<% end %>>Premium 50€/Einmalig</option>
+                </select>
+                <label for="passwort">Passwort
+                <% if @minimum_password_length %>
+                <em>(Mindestens <%= @minimum_password_length %> Charaktere)</em>
+                <% end %>
+                </label>
+                <%= f.password_field :password, autocomplete: "new-password", class: "w-input" %>
+                <label for="passwort_confirmation">Passwort Wiederholen</label>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-input" %>
+          
+                <%= f.submit "Jetzt kostenlos testen", class: "button-4 w-button", id: "register" %>
+                <!-- Display mandate acceptance text. 
+                <div id="mandate-acceptance">
+                  By providing your IBAN and confirming this payment, you are authorizing
+                  Rocketship Inc. and Stripe, our payment service provider, to send
+                  instructions to your bank to debit your account and your bank to debit
+                  your account in accordance with those instructions. You are entitled to
+                  a refund from your bank under the terms and conditions of your agreement
+                  with your bank. A refund must be claimed within 8 weeks starting from the
+                  date on which your account was debited.
+                </div> -->
+            <% end %>
+        </div>

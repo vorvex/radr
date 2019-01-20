@@ -1,0 +1,461 @@
+<div class="trial-container">
+  <div class="trial-left">
+    <h1>Herzlich Willkommen bei Radr!</h1>
+    <p class="info">Wir führen Sie Schritt für Schritt durch die App. Geben Sie als erstes bitte den Veranstaltungsort Ihrer ersten Veranstaltung ein um fortzufahren.</p>
+    <div class="newEvent newEvent1">
+      <%= form_for(@new_place, :html => {role: "form"}, url: create_trial_place_path) do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+            <fieldset>
+            <div class="row">
+              <label for="name">Name</label>
+              <%= f.text_field :name, placeholder: 'Veranstaltungsort' %>
+            </div>
+            <div class="row">
+              <label for="place-address">Adresse</label>
+              <input id="place-address" type="text" placeholder="Adresse" autocomplete="off">
+            </div>  
+            <div class="row">
+              <%= f.submit "Erstellen", id: "find", style: "margin-top: 10px" %>
+            </div>
+      </fieldset>
+      <fieldset style="display: none;">
+        <h3>Address-Details</h3>
+
+        <label>Name</label>
+        <input name="name" type="text" value="">
+
+        <label>POI Name</label>
+        <input name="point_of_interest" type="text" value="">
+
+        <label>Latitude</label>
+        <input name="lat" id="lat" type="text" value="">
+
+        <label>Longitude</label>
+        <input name="lng" id="lng" type="text" value="">
+
+        <label>Location</label>
+        <input name="location" type="text" value="">
+
+        <label>Location Type</label>
+        <input name="location_type" type="text" value="">
+
+        <label>Formatted Address</label>
+        <input name="formatted_address" type="text" value="">
+
+        <label>Bounds</label>
+        <input name="bounds" type="text" value="">
+
+        <label>Viewport</label>
+        <input name="viewport" type="text" value="">
+
+        <label>Route</label>
+        <input name="route" type="text" value="">
+
+        <label>Street Number</label>
+        <input name="street_number" type="text" value="">
+
+        <label>Postal Code</label>
+        <input name="postal_code" type="text" value="">
+
+        <label>Locality</label>
+        <input name="locality" type="text" value="">
+
+        <label>Sub Locality</label>
+        <input name="sublocality" type="text" value="">
+
+        <label>Country</label>
+        <input name="country" type="text" value="">
+
+        <label>Country Code</label>
+        <input name="country_short" type="text" value="">
+
+        <label>State</label>
+        <input name="administrative_area_level_1" type="text" value="">
+
+        <label>Place ID</label>
+        <input name="place_id" type="text" value="">
+
+        <label>ID</label>
+        <input name="id" type="text" value="">
+
+        <label>Reference</label>
+        <input name="reference" type="text" value="">
+
+        <label>URL</label>
+        <input name="url" type="text" value="">
+
+        <label>Website</label>
+        <input name="website" type="text" value="">
+      </fieldset>
+        <script src="https://ubilabs.github.io/geocomplete/jquery.geocomplete.js"></script>
+        <script>
+              $("#place-address").geocomplete({
+                details: "form",
+                types: ["geocode", "establishment"],
+              });
+              $("#find").click(function(){
+                $("#place-address").trigger("geocode");
+              });
+
+              $("#place-address")
+              .geocomplete()
+              .bind("geocode:result", function(event, result){
+                initMap($('#lat').val(), $('#lng').val(), 14, true)
+                console.log($('#lat').val());
+              });
+      </script>
+    <% end %>
+    </div>
+  </div>
+  <div class="trial-right">
+    <div id="map">
+    </div>
+  </div>
+</div>
+<script>
+  initMap("51.165691", "10.451526", 6, false);
+  //initMap
+  var map, styledMapType;
+  function initMap(lat, lng, zoom, marker){
+    styledMapType = new google.maps.StyledMapType([
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#242f3e"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#746855"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#242f3e"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.country",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.locality",
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#ffffff"
+        },
+        {
+          "lightness": -40
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.neighborhood",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.province",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.man_made",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#282828"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.natural",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#353535"
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.natural.landcover",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#353535"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#d59563"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#263c3f"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#6b9a76"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#38414e"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#212a37"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels",
+      "stylers": [
+        {
+          "color": "#9ca5b3"
+        },
+        {
+          "lightness": -35
+        },
+        {
+          "visibility": "simplified"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9ca5b3"
+        }
+      ]
+    },
+    {
+      "featureType": "road.arterial",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#1f6976"
+        },
+        {
+          "weight": 2.5
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#1f6976"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [
+        {
+          "color": "#1f2835"
+        }
+      ]
+    },
+    {
+      "featureType": "road.highway",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#f3d19c"
+        }
+      ]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "geometry.fill",
+      "stylers": [
+        {
+          "color": "#1f6976"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "transit",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#2f3948"
+        }
+      ]
+    },
+    {
+      "featureType": "transit.station",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#d59563"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#1a444c"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#515c6d"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#17263c"
+        }
+      ]
+    }
+  ]);
+    var options = {
+        zoom:zoom,
+        center: new google.maps.LatLng(lat,lng),
+        mapTypeControlOptions: {
+              mapTypeIds: 'styled_map'
+            },
+          disableDefaultUI: true,
+        };
+    map = new google.maps.Map(document.getElementById('map'), options);
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('styled_map', styledMapType);
+    map.setMapTypeId('styled_map');
+    if (marker == true) {
+    var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(lat, lng),
+              map: map,
+              icon: { url: 'https://image.ibb.co/nj24FK/Event.png',
+              scaledSize: new google.maps.Size(44, 40.4)}
+    })};     
+  }
+</script>
