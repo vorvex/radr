@@ -12,6 +12,8 @@ gem 'aws-sdk', '~> 3.0', '>= 3.0.1', require: false
 
 gem 'stripe'
 
+gem 'airtable'
+
 gem 'rest-client'
 
 gem 'json'

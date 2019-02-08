@@ -1,6 +1,8 @@
 class EventController < ApplicationController
   layout "dashboard"
   before_action :authenticate_user!
+  helper_method :create_bill
+  helper_method :create_charge
   
   def create
     @user = current_user
@@ -12,8 +14,14 @@ class EventController < ApplicationController
     if @new_event.end_time != nil
       @new_event.end_time = Time.zone.strptime(endTime, "%m/%d/%Y %H:%M")
     end
-    @new_event.save
-    redirect_to root_path
+    if @new_event.save
+      if @user.plan == "keinebindung" 
+        create_charge(599)
+      elsif @user.plan == "keinebindungrechnung"
+        create_bill(799)
+      end
+      redirect_to root_path
+    end
   end
   
   def destroy

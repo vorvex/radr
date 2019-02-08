@@ -71,9 +71,9 @@ class Devise::RegistrationsController < DeviseController
   def create_trial
     build_resource(sign_up_params)
     
-    plan = params[:paket]
+    plan = params[:plan]
     resource.plan = plan
-    
+    resource.website = params[:user][:website]
     resource.save
     yield resource if block_given?
     if resource.persisted?

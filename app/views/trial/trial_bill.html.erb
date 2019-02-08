@@ -1,18 +1,37 @@
-<script src="https://js.stripe.com/v3/"></script>
-<div style="width: 90vw; max-width: 1100px; margin: auto;"><h1 style="font-size: 2rem;">Bezahlinformation</h1></div>
+<div style="width: 90vw; max-width: 1100px; margin: auto;"><h1 style="font-size: 2rem;">Rechnungsinformation</h1></div>
 <div class="trial-container">
   <div class="newEvent newEvent1" style="width: 100%;">   
-    <%= form_for(@user, :html => {role: "form"}, url: create_trial_payment_path) do |f| %>
+    <%= form_for(@billing_address, :html => {role: "form"}, url: create_trial_bill_path) do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
     <fieldset>
       <div class="row">
         <label for="vorname">Vorname</label>
-        <input type="text" placeholder="Max" autocomplete="vorname">
+        <%= f.text_field :firstname, autofocus: true, placeholder: 'Max' %>
       </div>
       <div class="row">
         <label for="nachname">Nachname</label>
-        <input type="text" placeholder="Mustermann" autocomplete="nachname">
+        <%= f.text_field :lastname, autofocus: true, placeholder: 'Mustermann' %>
       </div>
       </fieldset>
+      
+      <fieldset>
+        <div class="row">
+          <label for="vorname">Straße und Hausnr.</label>
+          <%= f.text_field :street, autofocus: true, placeholder: 'Hauptstraße 1' %>
+        </div>
+        <div class="row">
+          <label for="nachname">Postleitzahl</label>
+          <%= f.text_field :plz, autofocus: true, placeholder: '123456' %>
+        </div>
+        <div class="row">
+          <label for="nachname">Stadt</label>
+          <%= f.text_field :locality, autofocus: true, placeholder: 'Heidelberg' %>
+        </div>
+        <div class="row">
+          <label for="nachname">Land</label>
+          <%= f.select(:country, [['Deutschland', 'DE'], ['Österreich', 'AUS']]) %>
+        </div>
+      </fieldset>   
       <fieldset>
         <div class="row">
           <label for="performer_type">Plan</label>
@@ -27,22 +46,24 @@
           var plan = $(this).val()
           if (plan == 'keinebindung') {
             $('#when').text('Zahlung Nächste Veranst.');
-            $('#amount').text('5,99€');
+            $('#amount').text('7,99€');
             $('#more').text('Es enstehen keine weitere Kosten vor Erstellung der zweiten Veranstaltung');
+            $('#fee').removeAttr("style").show();
           } else {
             $('#when').text('Zahlbetrag in 14 Tagen');
             $('#amount').text('50€');
             $('#more').text('Jederzeit kündbar vor Ablauf der Testphase');
+            $('#fee').removeAttr("style").hide();
           };
         })
       </script>
-      <%= render '/devise/registrations/payment_card2' %>
+      <input style="-webkit-appearance: checkbox; -moz-appearance: checkbox;" type="checkbox" name="per_email" value="email"> Rechnung per Email erhalten<br>
       <fieldset>
       <div class="row">
           <%= f.submit "Jetzt bezahlen", style: "margin-top: 10px", id: "payment" %>
       </div>
       </fieldset>
-      <%= link_to "Auf Rechnung zahlen", trial_bill_path %>
+      <%= link_to "Mit Kreditkarte fortfahren", trial_payment_path %>
     <% end %>
   </div>
   <div class="rechnung">
@@ -63,18 +84,26 @@
         <% if @user.plan == "keinebindung" %>
           <tr>
             <td id="when">Zahlung Nächste Veranst.</td>
-            <td style="text-align: right;" id="amount">5,99€</td>
+            <td style="text-align: right;" id="amount">7,99€</td>
+          </tr>
+          <tr id="fee">
+            <td>Bearbeitungsgebühr</td>
+            <td style="text-align: right;">2,00€</td>
           </tr>
           <tr>
-            <td style="font-size: 0.8rem;"  id="more" >Es enstehen keine weitere Kosten vor Erstellung der zweiten Veranstaltung</td>
+            <td style="font-size: 0.8rem;" id="more">Es enstehen keine weitere Kosten vor Erstellung der zweiten Veranstaltung</td>
           </tr>
         <% else %>
           <tr>
             <td id="when">Zahlbetrag in 14 Tagen</td>
             <td style="text-align: right;" id="amount">50€</td>
           </tr>
+          <tr style="display: none;" id="fee" >
+            <td>Bearbeitungsgebühr</td>
+            <td style="text-align: right;">2,00€</td>
+          </tr>
           <tr>
-            <td style="font-size: 0.8rem;" id="more">Jederzeit kündbar vor Ablauf der Testphase</td>
+            <td style="font-size: 0.8rem;" id="more>Jederzeit kündbar vor Ablauf der Testphase</td>
           </tr>
         <% end %>
       </table>

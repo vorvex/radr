@@ -33,7 +33,6 @@ class TrialController < ApplicationController
   end
   
   def trial_event
-    @event = Event.new
     @user = current_user
     if @user.event_count != 0
       if @user.stripe_token.nil?
@@ -46,9 +45,7 @@ class TrialController < ApplicationController
   end
   
   def create_trial_event
-    @event = Event.new
-    @user = current_user
-    
+    @user = current_user   
     @new_event = Event.new(event_params)
     startTime = params[:event][:start_date] + " " + params[:event][:start_time]
     endTime = params[:event][:end_date] + " " + params[:event][:end_time]
@@ -75,7 +72,9 @@ class TrialController < ApplicationController
   def create_trial_payment
     @user = current_user
     token = params[:stripeToken]
+    @user.plan = params[:plan]
     email = @user.email
+    description = "Radr Event Seo - " + email
     
     Stripe.api_key = ENV['stripe_api_key']
     
@@ -108,9 +107,36 @@ class TrialController < ApplicationController
       redirect_to trial_payment_path
   end
   
+  def trial_bill
+    @user = current_user
+    @billing_address = BillingAddress.new
+  end
+
+  def create_trial_bill
+    @user = current_user
+    @user.plan = params[:plan]
+    @billing_address = BillingAddress.new(billing_address_params)
+    if @billing_address.save!
+      if @user.plan == "premium"
+        @user.plan = "premiumrechnung"
+        @user.confirmed = true
+        @user.save!
+        create_bill(5000)
+      elsif @user.plan == "keinebindung"
+        @user.plan = "keinebindungrechnung"
+        @user.confirmed = true
+        @user.save!
+      end   
+    end
+    
+    redirect_to trial_code_path
+    
+  end  
+    
   def trial_code
-   layout 'register'
    @user = current_user
+   @url = 'https://www.the-radr.com/code-einbinden?id=' + @user.id.to_s
+   redirect_to @url
   end
   
   def trial_free
@@ -152,6 +178,10 @@ class TrialController < ApplicationController
   
   def event_params
     params.require(:event).permit(:name, :description, :user_id, :place_id, :start_time, :end_time, :offer, :price, :ticket_url, :ticket_status, :pathname, :image_url, :start_date, :end_date, :performer_type, :performer ,:image)
+  end
+  
+  def billing_address_params
+    params.require(:billing_address).permit(:firstname, :lastname, :street, :plz, :locality, :country, :user_id)
   end
   
 end

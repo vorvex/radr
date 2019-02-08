@@ -57,7 +57,7 @@
                   <%= f.url_field(:image_url, placeholder:"http://www.bild-link.de") %>
                 </div>
               </fieldset>
-              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu oder in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
+              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
               <fieldset>
                 <div class="row">
                   <label for="ticket_url">Ticketlink</label>
@@ -75,11 +75,22 @@
               <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
               <fieldset>
                 <div class="row">
+                  <label for="performer">Performer (wenn vorhanden)</label>
+                  <%= f.text_field(:performer, placeholder:"Vor und Nachname") %>
+                </div>
+                <div class="row">
+                  <label for="performer_type">Typ</label>
+                  <%= f.select(:performer_type, [['Band', 'PerformingGroup'], ['Sänger', 'Person'], ['DJ', 'Person'], ['Tanzgruppe', 'DanceGroup']]) %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn ein Sänger, eine Band oder Tanzgruppe bei dieser Veranstaltung auftritt tragen Sie diesen/diese hier ein.</p>
+              <fieldset>
+                <div class="row">
                   <label for="ticket_url">Link Eventseite</label>
                   <%= f.text_field(:pathname, placeholder:"/event-name") %>
                 </div>
               </fieldset>
-              <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein.</p>
+              <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein. Beispiel: Wenn Ihre Seite https://www.ihre-seite.de/meine-veranstaltung heißt fügen Sie hier bitte nur /meine-veranstaltung ein.</p>
               <div id="material-header-holder" style="display:none">
                 <div class="ui-datepicker-material-day">
                 </div>
@@ -93,4 +104,4 @@
                 </div>
               </div>
               <button type="submit">Event erstellen</button>
-<% end %>
+        <% end %>

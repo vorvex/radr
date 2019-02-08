@@ -25,6 +25,7 @@
       <a class="radr-navbar-brand" href="https://www.the-radr.com">
         <img src="https://app.the-radr.com/images/radr-logo-dark.png" alt="Logo" height="40px">
       </a>
+      <%= link_to "Abmelden", destroy_user_session_path, :method => :delete %>
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

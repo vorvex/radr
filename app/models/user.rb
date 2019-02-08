@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :events
   has_many :places
+  has_one :billing_address
   
   def trial?
     count = (DateTime.parse(self.created_at.to_s)...Date.today).count

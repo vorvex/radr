@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   
   get 'trial/payment' => 'trial#trial_payment', as: :trial_payment
   patch 'trial/payment' => 'trial#create_trial_payment', as: :create_trial_payment
+  
+  get 'trial/rechnung' => 'trial#trial_bill', as: :trial_bill
+  post 'trial/rechnung' => 'trial#create_trial_bill', as: :create_trial_bill
 
   get 'trial/code' => 'trial#trial_code', as: :trial_code
 
