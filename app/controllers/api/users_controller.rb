@@ -17,6 +17,7 @@ class Api::UsersController < ApplicationController
         event.save!
         UserMailer.with(user: @user, event: event).event_beendet.deliver_now
       end
+    end
   end
     
 end

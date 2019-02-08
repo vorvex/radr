@@ -200,26 +200,7 @@
           <p class="info">Bitte stellen Sie sicher, dass Sie die richtige Webseite eingeben. Geben Sie nur den Namen Ihrer Domain und die Endung ein. Beispiel: the-radr.com
           </p>
         </div>
-          <div>
-            <h5>Konto Einstellungen</h5>
-            <div class="newEvent newEvent1">
-              <% if @user.plan == "premium" || @user.plan == "premiumrechnung" %>
-              <%= form_for(@user, :html => {role: "form", method: "delete"}, url: update_user_path) do |f| %>
-                  <fieldset>
-                  <div class="row">
-                      <%= f.submit "In Zukunft 5,99€ pro Veranstaltung zahlen ", id: "find", style: "margin-top: 10px" %>
-                  </div>
-                  </fieldset>
-              <% end %>
-              <%= form_for(@user, :html => {role: "form", method: "delete"}, url: update_user_path) do |f| %>
-                  <fieldset>
-                  <div class="row">
-                      <%= f.submit "Akkount deaktivieren", id: "find", style: "margin-top: 10px" %>
-                  </div>
-                  </fieldset>
-              <% end %>
-            </div>
-          </div>
+          
         <div>
         <h5>Code zum Kopieren</h5>
         <div>          
