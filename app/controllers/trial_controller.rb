@@ -121,7 +121,20 @@ class TrialController < ApplicationController
         @user.plan = "premiumrechnung"
         @user.confirmed = true
         @user.save!
-        create_bill(5000)
+        @client = Airtable::Client.new("keyEjrVtXi3R10TJe")
+        @table = @client.table("appUc27X5NKBKsHrT", "rechnungen")
+
+        name = @billing_address.firstname + " " + @billing_address.lastname
+
+        @record = Airtable::Record.new(
+                                       :name => name, 
+                                       :kunden_id => @user.id, 
+                                       :street => @billing_address.street, 
+                                       :plz => @billing_address.plz, 
+                                       :locality => @billing_address.locality,
+                                       :country => @billing_address.country,
+                                       :amount => 50)
+        @table.create(@record)
       elsif @user.plan == "keinebindung"
         @user.plan = "keinebindungrechnung"
         @user.confirmed = true
