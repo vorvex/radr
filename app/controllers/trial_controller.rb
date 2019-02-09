@@ -85,7 +85,7 @@ class TrialController < ApplicationController
     
     @user.stripe_token = customer.id
     
-    if @user.plan == "premium"
+    if params[:plan] == "premium"
       charge = Stripe::Charge.create(
       amount: 5000,
       currency: "eur",
@@ -103,7 +103,8 @@ class TrialController < ApplicationController
     redirect_to trial_code_path
     
     rescue Stripe::CardError => e
-      flash[:error] = e.message
+      flash[:alert] = e.message
+      puts e.message
       redirect_to trial_payment_path
   end
   
