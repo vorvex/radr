@@ -140,7 +140,6 @@ class TrialController < ApplicationController
         @user.confirmed = true
         @user.save!
       end   
-    end
     
     redirect_to trial_code_path
     
