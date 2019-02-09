@@ -35,7 +35,7 @@
       <fieldset>
         <div class="row">
           <label for="performer_type">Plan</label>
-          <select for="plan" id="plan">
+          <select name="plan" for="plan" id="plan">
             <option value="premium" <% if @user.plan == "premium" %>selected<% end %>>50€ einmalig</option>
             <option value="keinebindung" <% if @user.plan == "keinebindung" %>selected<% end %>>5,99€ pro Veranstaltung</option>
           </select>
