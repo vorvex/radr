@@ -15,27 +15,10 @@ class Devise::RegistrationsController < DeviseController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    token = params[:stripeToken]
-    email = params[:user][:email]
-    description = "Radr Event Seo - " + email
     
-    Stripe.api_key = ENV['stripe_api_key']
-    
-    customer = Stripe::Customer.create(
-      :email => email,
-      :source => token
-    )
-    
-    charge = Stripe::Charge.create(
-      :amount => 5000,
-      :currency => "eur",
-      :description => description,
-      :receipt_email => email,
-      :customer => customer.id
-    )
-    
-    resource.stripe_token = customer.id
-    
+    plan = params[:plan]
+    resource.plan = plan
+    resource.website = params[:user][:website]
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -43,21 +26,17 @@ class Devise::RegistrationsController < DeviseController
         set_flash_message! :notice, :signed_up
         UserMailer.with(user: @user).welcome_email.deliver_now
         sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+        after_sign_up_trial_path_for(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+        respond_with resource, location: after_inactive_sign_up_trial_path_for(resource)
       end
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      respond_with resource, location: after_inactive_sign_up_trial_path_for(resource)
     end
-    
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_user_registration_path
   end
 
   #Trial
@@ -90,7 +69,7 @@ class Devise::RegistrationsController < DeviseController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
+      respond_with resource, location: after_inactive_sign_up_trial_path_for(resource)
     end
     
   end
