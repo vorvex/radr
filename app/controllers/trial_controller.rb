@@ -117,7 +117,7 @@ class TrialController < ApplicationController
     @user = current_user
     @user.plan = params[:plan]
     @billing_address = BillingAddress.new(billing_address_params)
-    if @billing_address.save!
+    @billing_address.save!
       if @user.plan == "premium"
         @user.plan = "premiumrechnung"
         @user.confirmed = true
@@ -127,8 +127,7 @@ class TrialController < ApplicationController
 
         name = @billing_address.firstname + " " + @billing_address.lastname
 
-        @record = Airtable::Record.new(
-                                       :name => name, 
+        @record = Airtable::Record.new(:name => name, 
                                        :kunden_id => @user.id, 
                                        :street => @billing_address.street, 
                                        :plz => @billing_address.plz, 
