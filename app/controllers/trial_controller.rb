@@ -133,7 +133,8 @@ class TrialController < ApplicationController
                                        :plz => @billing_address.plz, 
                                        :locality => @billing_address.locality,
                                        :country => @billing_address.country,
-                                       :amount => 50)
+                                       :amount => 50,
+                                       :per_email => params[:per_email])
         @table.create(@record)
       elsif @user.plan == "keinebindung"
         @user.plan = "keinebindungrechnung"

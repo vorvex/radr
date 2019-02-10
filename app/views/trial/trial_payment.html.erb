@@ -1,4 +1,10 @@
-<div style="width: 90vw; max-width: 1100px; margin: auto;"><h1 style="font-size: 2rem;">Bezahlinformation</h1></div>
+<div style="width: 90vw; max-width: 1100px; margin: auto;">
+  <h1 style="font-size: 2rem;">Bezahlinformation</h1>
+  <p class="info">Ihre erste Veranstaltung wurde erfolgreich angelegt. Um fortzufahren wählen Sie nun bitte Ihre Bezahlart. Es stehen Ihnen Zahlung mit Kreditkarte oder per Rechnung zur Verfügung.
+    Beachten Sie bitte, dass wir zu keinem Zeitpunkt Ihre Kreditkarteninformationen in unserer Datenbank speichern. Diese wird bei unserem Bezahlsystem Stripe hinterlegt und kann nicht eingesehen werden.
+    Sie können Ihre Mietgliedschaft innerhalb der Probezeit kündigen ohne das Kosten entstehen.
+  </p>
+</div>
 <div class="trial-container">
   <div class="newEvent newEvent1" style="width: 100%;">   
     <%= form_for(@user, :html => {role: "form"}, url: create_trial_payment_path) do |f| %>
