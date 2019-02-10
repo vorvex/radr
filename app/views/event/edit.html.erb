@@ -18,102 +18,253 @@
     </div>
 
 </nav>
-<div style="max-width: 1100px; max-width: 90%; margin:0 auto;">
-  <div class="newEvent newEvent1" id="newEvent-1">
-    <h1>Event Bearbeiten</h1>
-    <%= form_for(@event, :html => {role: "form"}, url: update_event_url) do |f| %>
-                  <%= f.hidden_field :user_id, value: @user.id %>
-                  <fieldset>
-                    <div class="row">
-                      <label for="name">Eventname</label>
-                      <%= f.text_field :name, autofocus: true, placeholder: 'Beispiel Name' %>
-                    </div>
-                  </fieldset>  
-                  <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
-        Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
-        Fügen Sie keine Preise im Titel hinzu</p>
-                  <fieldset>
-                    <div class="row beschreibung">
-                      <label for="description">Beschreibung</label>
-                      <%= f.text_area :description, placeholder: 'Beschreibung', class: 'form-control' %>
-                    </div>
-                  </fieldset>
-                  <fieldset>
-                    <div class="row">
-                      <label for="start_date">Start Datum</label>
-                      <%= f.text_field :start_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
-                    </div>
-                    <div class="row">
-                      <label for="start_time">Uhrzeit</label>
-                      <%= f.time_field :start_time, placeholder: '12:00' %>
-                    </div>
-                  </fieldset>
-                  <fieldset>
-                    <div class="row">
-                      <label for="end_date">End Datum</label>
-                      <%= f.text_field :end_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
-                    </div>
-                    <div class="row">
-                      <label for="end_time">Uhrzeit</label>
-                      <%= f.time_field :end_time, placeholder: '12:00' %>
-                    </div>
-                  </fieldset>
-                  <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
-                  <fieldset>
-                    <div class="row">
-                      <label for="place_id">Ort</label>
-                      <%= f.collection_select(:place_id, @user.places.all, :id, :name) %>
-                    </div>
-                  </fieldset>
-                  <p class="info">Um weitere Orte hinzuzufügen gehen Sie in den Reiter Einstellungen.</p>
-                  <fieldset>
-                    <div class="row">
-                      <label for="image">Bild</label>
-                      <div class="file-input-vis">
-                        <%= f.file_field :image %>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <label for="image_url">Bild-Link</label>
-                      <%= f.url_field(:image_url, placeholder:"http://www.bild-link.de") %>
-                    </div>
-                  </fieldset>
-                  <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu oder in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
-                  <fieldset>
-                    <div class="row">
-                      <label for="ticket_url">Ticketlink</label>
-                      <%= f.url_field(:ticket_url, placeholder:"http://www.ticket-link.de") %>
-                    </div>
-                    <div class="row">
-                      <label for="offer_price">Preis in €</label>
-                      <%= f.number_field(:price, in: 0.0..10000.0, placeholder:'30') %>
-                    </div>
-                    <div class="row">
-                      <label for="ticket_status">Verfügbar</label>
-                      <%= f.select(:ticket_status, [['Verfügbar', 'https://schema.org/InStock'], ['Ausverkauft', 'https://schema.org/SoldOut'], ['Vorverkauf', 'https://schema.org/PreOrder']]) %>
-                    </div>
-                  </fieldset>
-                  <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
-                  <fieldset>
-                    <div class="row">
-                      <label for="ticket_url">Link Eventseite</label>
-                      <%= f.text_field(:pathname, placeholder:"/event-name") %>
-                    </div>
-                  </fieldset>
-                  <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein.</p>
-                  <div id="material-header-holder" style="display:none">
-                    <div class="ui-datepicker-material-day">
-                    </div>
-                    <div class="ui-datepicker-material-date">
-                      <div class="ui-datepicker-material-month">
-                      </div>
-                      <div class="ui-datepicker-material-day-num">
-                      </div>
-                      <div class="ui-datepicker-material-year">
-                      </div>
-                    </div>
+<div class="trial-container sticky">
+  <div class="trial-left">
+    <h1>Erstellen Sie als nächstes Ihre erste Veranstaltung</h1>
+    <div class="newEvent newEvent1">
+      <%= form_for(@event, :html => {role: "form"}, url: update_event_path) do |f| %>
+              <%= f.hidden_field :user_id, value: @user.id %>
+              <fieldset>
+                <div class="row">
+                  <label for="name">Eventname</label>
+                  <%= f.text_field :name, placeholder: 'Beispiel Name' %>
+                </div>
+              </fieldset>  
+              <p class="info">Markieren Sie im Titel einen einzigartigen Aspekt der Veranstaltung. Dies hilft Benutzern, schnellere Entscheidungen zu treffen (z. B. "Fragen und Antworten mit dem Künstler").
+    Fügen Sie keine kurzfristigen Werbeaktionen hinzu (z. B. "Tickets jetzt kaufen").
+    Fügen Sie keine Preise im Titel hinzu</p>
+              <fieldset>
+                <div class="row beschreibung">
+                  <label for="description">Beschreibung</label>
+                  <%= f.text_area :description, placeholder: 'Beschreibung', class: 'form-control' %>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="start_date">Start Datum</label>
+                  <%= f.text_field :start_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
+                </div>
+                <div class="row">
+                  <label for="start_time">Uhrzeit</label>
+                  <%= f.time_field :start_time, placeholder: '12:00' %>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div class="row">
+                  <label for="end_date">End Datum</label>
+                  <%= f.text_field :end_date, placeholder: '01.01.2019', readonly: 'true', 'data-type': 'date' %>
+                </div>
+                <div class="row">
+                  <label for="end_time">Uhrzeit</label>
+                  <%= f.time_field :end_time, placeholder: '12:00' %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Ihre Veranstaltung kein genaues Ende hat und am selben Tag endet dann geben Sie kein End-Datum ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="place_id">Ort</label>
+                  <%= f.collection_select(:place_id, @user.places.all, :id, :name) %>
+                </div>
+              </fieldset>
+              <p class="info">Um weitere Orte hinzuzufügen gehen Sie in den Reiter Einstellungen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="image">Bild</label>
+                  <div class="file-input-vis">
+                    <%= f.file_field :image %>
+                    <!--<span class="file-msg">Bild Hochladen</span>
+                    <input class="file-input" id="image" type="file">-->
                   </div>
-                  <button type="submit">Event aktualisieren</button>
-    <% end %>
+                </div>
+                <div class="row">
+                  <label for="image_url">Bild-Link</label>
+                  <%= f.url_field(:image_url, placeholder:"http://www.bild-link.de") %>
+                </div>
+              </fieldset>
+              <p class="info">Fügen Sie Ihrer Veranstaltung ein Bild hinzu in dem Sie ein Bild hochladen oder die URL eines Bildes einfügen.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="ticket_url">Ticketlink</label>
+                  <%= f.url_field(:ticket_url, placeholder:"http://www.ticket-link.de") %>
+                </div>
+                <div class="row">
+                  <label for="offer_price">Preis in €</label>
+                  <%= f.number_field(:price, in: 0.00..10000.00, placeholder:'30,00') %>
+                </div>
+                <div class="row">
+                  <label for="ticket_status">Verfügbar</label>
+                  <%= f.select(:ticket_status, [['Verfügbar', 'https://schema.org/InStock'], ['Ausverkauft', 'https://schema.org/SoldOut'], ['Vorverkauf', 'https://schema.org/PreOrder']]) %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn Sie online Tickets zu Ihrer Veranstaltung verkaufen tragen Sie hier Informationen ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="performer">Performer (wenn vorhanden)</label>
+                  <%= f.text_field(:performer, placeholder:"Vor und Nachname") %>
+                </div>
+                <div class="row">
+                  <label for="performer_type">Typ</label>
+                  <%= f.select(:performer_type, [['Band', 'PerformingGroup'], ['Sänger', 'Person'], ['DJ', 'Person'], ['Tanzgruppe', 'DanceGroup']]) %>
+                </div>
+              </fieldset>
+              <p class="info">Wenn ein Sänger, eine Band oder Tanzgruppe bei dieser Veranstaltung auftritt tragen Sie diesen/diese hier ein.</p>
+              <fieldset>
+                <div class="row">
+                  <label for="ticket_url">Link Eventseite</label>
+                  <%= f.text_field(:pathname, placeholder:"/event-name") %>
+                </div>
+              </fieldset>
+              <p class="info">Falls Sie eine eigene Unterseite für das Event haben, fügen Sie hier den Link ein. Beispiel: Wenn Ihre Seite https://www.ihre-seite.de/meine-veranstaltung heißt fügen Sie hier bitte nur /meine-veranstaltung ein.</p>
+              <div id="material-header-holder" style="display:none">
+                <div class="ui-datepicker-material-day">
+                </div>
+                <div class="ui-datepicker-material-date">
+                  <div class="ui-datepicker-material-month">
+                  </div>
+                  <div class="ui-datepicker-material-day-num">
+                  </div>
+                  <div class="ui-datepicker-material-year">
+                  </div>
+                </div>
+              </div>
+              <button type="submit">Event erstellen</button>
+        <% end %>
+    </div>
+  </div>
+  <div class="trial-right on-top">
+    <h3>Vorschau Suche</h3>
+    <div class="search-preview" id="preview">
+      <div class="preview-header"><span id="preview-name">Name der Veranstaltungsseite</span>
+      <span id="preview-link">https://<%= @user.website %>/</span>
+        <hr>
+      </div>
+      <div class="preview-body">
+        <p id="preview-description">Das ist ein Beispieltext, füllen Sie Beschreibung aus um diesen Text zu ändern</p>
+      </div>
+      <hr>
+      <div class="preview-date">
+        <div>
+          <span id="preview-event">Name der Veranstaltung
+          </span>
+          <span class="preview-time">
+            <span id="date">Mi, 16.Jan</span> · <span id="preview-place"><%= @user.places.first.name %></span>
+          </span>
+        </div>
+        <span class="preview-arrow"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path></svg></span>
+      </div>
+    </div>
+    <div class="iframe" style="display: none;">
+      <p class="info">Dieser Bereich zeigt, wie Ihre Veranstaltung in der Suche angezeigt werden kann.</p>
+      <h3>Vorschau Kalender-Widget</h3>
+      <iframe src="https://s.codepen.io/oneline/debug/YddNxv/XxMVwaQZDQLr" frameborder="0" height="200px" width="100%"></iframe>
+      <p class="info">Mit Radr Premium können Sie ein personalisiertes Kalendar-Widget auf Ihrer Seite platzieren</p>
+    </div>
   </div>
 </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js'></script>
+<script src='https://codepen.io/oneline/pen/QzNKXJ.js'></script>
+<script src='https://codepen.io/oneline/pen/gjMZrz.js'></script>
+<script>
+  $(document).ready(function() {
+         $('#event_name').change(function() {
+           var val = $(this).val();
+            $('#preview-name').text(val);
+            $('#preview-event').text(val);
+            $('iframeName').text(val);
+          });
+
+          $('#event_description').change(function() {
+            var val = $(this).val();
+            $('#preview-description').text(val);
+          });
+
+          $(document).on('click', function() {
+            var time = $('#event_start_date').val();
+            
+            if (time != "") {
+            var s = toDate(time);
+            switch(s.getDay()) {
+            case 0:
+              var day = "So"
+              break;
+            case 1:
+              var day = "Mo"
+              break;
+            case 2:
+              var day = "Die"
+              break; 
+            case 3:
+              var day = "Mi"
+              break;
+            case 4:
+              var day = "Do"
+              break;    
+            case 5:
+              var day = "Fr"
+              break;
+            case 6:
+              var day = "Sa"
+              break;    
+            }
+            switch(s.getMonth()) {
+            case 0:
+              var month = "Jan"
+              break;
+            case 1:
+              var month = "Feb"
+              break;
+            case 2:
+              var month = "Mär"
+              break; 
+            case 3:
+              var month = "Apr"
+              break;
+            case 4:
+              var month = "Mai"
+              break;    
+            case 5:
+              var month = "Jun"
+              break;
+            case 6:
+              var month = "Jul"
+              break;
+            case 7:
+              var month = "Aug"
+              break;
+            case 8:
+              var month = "Sep"
+              break;
+            case 9:
+              var month = "Okt"
+              break;
+            case 10:
+              var month = "Nov"
+              break;
+            case 11:
+              var month = "Dez"
+              break;
+             
+            }  
+            var val = day + ", " + s.getDate() + ". " + month;
+            $('#date').text(val);
+              
+            var iframe = s.getDate() + ". " + month;
+            $('#iframeDate').text(iframe);  
+            }});
+          });
+  
+          function toDate(dateStr) {
+            var parts = dateStr.split("/");
+            return new Date(parts[2], parts[0] - 1, parts[1]);
+          }
+    </script>
+<script>
+  var p = $('#preview-description');
+  while ($(p).outerHeight() > 40) {
+    $(p).text(function(index, text) {
+      return text.replace(/\W*\s(\S)*$/, '...');
+    });
+  }    
+</script>
