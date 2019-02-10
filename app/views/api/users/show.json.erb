@@ -41,7 +41,13 @@
           "price": "<%= event.price %>",
           "priceCurrency": "EUR",
           "availability": "<%= event.ticket_status %>"
-        }
+        }          
+      <% end %>
+      <% if event.performer != "" %>
+      ,  "performer": {
+            "@type": "<%= event.performer_type %>",
+            "name": "<%= event.performer %>"
+          }
       <% end %>
     },
     "path": "<%= event.pathname %>"
