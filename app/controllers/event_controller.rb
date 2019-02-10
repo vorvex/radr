@@ -31,6 +31,9 @@ class EventController < ApplicationController
   end
   
   def edit 
+    respond_to do |format|
+      format.html { render layout: 'trial' }
+    end
     @user = current_user
     @event = Event.find(params[:id])
   end
