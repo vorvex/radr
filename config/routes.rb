@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   
   patch 'user-akutalisieren' => 'user#update', as: :update_user
   
+  post 'konto-einstellung' => 'user#change', as: :change_user
+  
   get 'event/:id' => 'event#edit', as: :edit_event
   patch 'event/:id' => 'event#update', as: :update_event
   post 'event-erstellen' => 'event#create', as: :create_event

@@ -199,8 +199,30 @@
       </div>
           <p class="info">Bitte stellen Sie sicher, dass Sie die richtige Webseite eingeben. Geben Sie nur den Namen Ihrer Domain und die Endung ein. Beispiel: the-radr.com
           </p>
-        </div>
-          
+        </div> 
+        <div>
+          <h5>Konto Einstellungen</h5>
+          <div class="newEvent newEvent1">
+        <%= form_for(@user, :html => {role: "form"}, url: change_user_path, remote: true) do |f| %>
+            <fieldset>
+            <div class="row">
+              <label for="website">Konto ändern</label>
+              <select name="change" for="change" id="change">
+                <option value="1">Konto löschen</option>
+                <option value="2">Kontotyp ändern</option>
+                <option value="3">Zu Rechnung</option>
+                <option value="4">Zu Zahlung mit Kreditkarte</option>
+              </select>
+            </div>
+            <div class="row">
+                <%= f.submit "Senden", id: "find", style: "margin-top: 10px" %>
+            </div>
+            </fieldset>
+        <% end %>
+      </div>
+          <p class="info">Bitte stellen Sie sicher, dass Sie die richtige Webseite eingeben. Geben Sie nur den Namen Ihrer Domain und die Endung ein. Beispiel: the-radr.com
+          </p>
+        </div> 
         <div>
         <h5>Code zum Kopieren</h5>
         <div>          
@@ -211,7 +233,7 @@
           </p>
           <p class="info">Kopieren Sie den angezeigten Code in den &lt;head&gt;-Bereich Ihrer Webseite. Dazu benötigen Sie Zugriff auf Ihre Webseite. Wenn Sie Wordpress, Typo3 oder ein anderes CMS-System benutzen können Sie den Code einfach in das dafür vorgesehene Eingabefeld einfügen. Sollten Sie keine Möglichkeit dafür haben oder Unsicher mit der Anwendung sein kontaktieren Sie Ihren Web-Entwickler. Stellen Sie sicher dass Sie nichts Löschen.
           </p>
-          <button href="https://code-einbinden?id=<%= @user.id %>">Anleitung</button>
+          <a href="https://code-einbinden?id=<%= @user.id %>">Anleitung</a>
         </div>
         <h5>Fragen und Anregungen</h5>
         <iframe class="airtable-embed" src="https://airtable.com/embed/shroWKUohGRya33Tb?backgroundColor=yellow" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
